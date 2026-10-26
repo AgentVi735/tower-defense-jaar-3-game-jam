@@ -63,5 +63,25 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: efa9865f690b5fa41a319d9f748b5564, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1399097364937370767}
   m_SourcePrefab: {fileID: 100100000, guid: efa9865f690b5fa41a319d9f748b5564, type: 3}
+--- !u!1 &787721534671992438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: efa9865f690b5fa41a319d9f748b5564, type: 3}
+  m_PrefabInstance: {fileID: 445827080358300455}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1399097364937370767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787721534671992438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3428035b2914d019b9b23f156e4e310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FckAI.Towers.PaintBucketTower

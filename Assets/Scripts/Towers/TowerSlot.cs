@@ -8,6 +8,11 @@ namespace FckAI.Towers
     {
         [SerializeField] private TowerSlotRenderer m_slotRenderer;
         [SerializeField] private Vector3 m_uiOffset;
+        [SerializeField] private Transform m_spawnTransform;
+
+        private Tower m_tower;
+
+        private bool m_hasTower => m_tower != null;
 
         private bool m_isHovering;
         private bool m_isSelected;
@@ -32,6 +37,7 @@ namespace FckAI.Towers
         private void OnPress()
         {
             if (!m_isHovering) return;
+            if (m_hasTower) return;
 
             m_isSelected = true;
             Vector3 slotPos = m_uiOffset + transform.position;
@@ -43,6 +49,8 @@ namespace FckAI.Towers
         {
             m_isSelected = false;
             GameManager.s_Tokens -= data.m_BaseCost;
+            m_tower = Instantiate(data.m_Prefab, m_spawnTransform);
+            m_tower.Initialise(data);
         }
     }
 }

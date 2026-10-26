@@ -4,6 +4,8 @@ namespace FckAI.Towers
 {
     public class TowerLevel : ScriptableObject
     {
+        [SerializeField] private TowerLevel m_nextLevel;
+        public TowerLevel m_NextLevel => m_nextLevel;
         [SerializeField] private int m_cost;
         public int m_Cost => m_cost;
         [SerializeField] private float m_newDamage;
