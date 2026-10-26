@@ -16,3 +16,12 @@ MonoBehaviour:
   m_baseCost: 10
   m_baseDamage: 5
   m_prefab: {fileID: 2092545669607992132, guid: 46ac1b25d00f0d246bc228bd2eb03364, type: 3}
+  m_paintColors:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 1, g: 0.41568628, b: 0, a: 0}
+  - {r: 1, g: 0.7490196, b: 0, a: 0}
+  - {r: 0.38431373, g: 1, b: 0, a: 0}
+  - {r: 0, g: 1, b: 1, a: 0}
+  - {r: 0, g: 0.050980393, b: 1, a: 0}
+  - {r: 0.44823313, g: 0, b: 1, a: 0}
+  - {r: 1, g: 0, b: 0.8666667, a: 0}
