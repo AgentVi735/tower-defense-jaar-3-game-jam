@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Paint Bucket
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Towers.PaintBucketData
   m_towerName: Paint Bucket
-  m_nextLevel: {fileID: 0}
+  m_nextLevel: {fileID: 11400000, guid: 2f02205b3cb54234291040ff38888f86, type: 2}
   m_baseCost: 10
   m_baseDamage: 5
   m_baseCooldown: 1

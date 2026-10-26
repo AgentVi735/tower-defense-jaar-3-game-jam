@@ -2,10 +2,13 @@
 
 namespace FckAI.Towers
 {
+    [CreateAssetMenu(menuName = "Towers/Level")]
     public class TowerLevel : ScriptableObject
     {
         [SerializeField] private TowerLevel m_nextLevel;
         public TowerLevel m_NextLevel => m_nextLevel;
+        [SerializeField] private string m_description;
+        public string m_Description => m_description;
         [SerializeField] private int m_cost;
         public int m_Cost => m_cost;
         [SerializeField] private float m_newDamage;

@@ -41,7 +41,6 @@ namespace FckAI.UI.Towers
         
         private void SpawnButtons()
         {
-            // Debug.Log(GameManager.Instance?.m_GameData?.m_Towers?.Length);
             TowerData[] towers = GameManager.Instance.m_GameData.m_Towers;
             int count = towers.Length;
             m_buttons = new TowerSelectButton[count];
@@ -95,7 +94,7 @@ namespace FckAI.UI.Towers
         public void OnSelectButton(TowerData data)
         {
             m_currentSlot.PlaceTower(data);
-            Debug.Log(GameManager.s_Tokens);
+            m_currentSlot = null;
             Hide();
         }
     }

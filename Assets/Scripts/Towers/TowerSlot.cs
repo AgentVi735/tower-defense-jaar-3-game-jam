@@ -9,6 +9,7 @@ namespace FckAI.Towers
         [SerializeField] private TowerSlotRenderer m_slotRenderer;
         [SerializeField] private Vector3 m_uiOffset;
         [SerializeField] private Transform m_spawnTransform;
+        [SerializeField] private BoxCollider m_boxCollider;
 
         private Tower m_tower;
 
@@ -23,20 +24,21 @@ namespace FckAI.Towers
 
         private void OnHover(bool toggle)
         {
-            if (m_isSelected) return;
             m_isHovering = toggle;
+            if (m_isSelected) return;
             m_slotRenderer.ToggleHover(toggle);
         }
 
         public void OnCancelPlacement()
         {
             m_isSelected = false;
-            OnHover(false);
+            if (!m_isHovering)
+                OnHover(false);
         }
 
         private void OnPress()
         {
-            if (!m_isHovering) return;
+            if (!m_isHovering || m_isSelected) return;
             if (m_hasTower) return;
 
             m_isSelected = true;
@@ -51,6 +53,8 @@ namespace FckAI.Towers
             GameManager.s_Tokens -= data.m_BaseCost;
             m_tower = Instantiate(data.m_Prefab, m_spawnTransform);
             m_tower.Initialise(data);
+            m_slotRenderer.Toggle(false);
+            m_boxCollider.enabled = false;
         }
     }
 }

@@ -41,5 +41,7 @@ namespace FckAI.Towers
 
             m_spriteRenderer.color = endColor;
         }
+
+        public void Toggle(bool toggle) => gameObject.SetActive(toggle);
     }
 }

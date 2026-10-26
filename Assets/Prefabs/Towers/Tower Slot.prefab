@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6614176047737754204
 Transform:
@@ -50,6 +50,7 @@ MonoBehaviour:
   m_slotRenderer: {fileID: 1542331422837957372}
   m_uiOffset: {x: 5, y: 0, z: 0}
   m_spawnTransform: {fileID: 179404088026133252}
+  m_boxCollider: {fileID: 6716437070794258086}
 --- !u!65 &6716437070794258086
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -85,7 +86,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &179404088026133252
 Transform:
@@ -118,7 +119,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8005213977782952240
 Transform:

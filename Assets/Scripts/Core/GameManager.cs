@@ -28,6 +28,7 @@ namespace FckAI.Core
             Instance = this;
             SetData();
             FindAnyObjectByType<TowerSelectUI>().Initialise();
+            FindAnyObjectByType<TowerUpgradeUI>().Initialise();
         }
 
         private void SetData()

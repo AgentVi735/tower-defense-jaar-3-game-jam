@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Core.GameData
   m_towers:
   - {fileID: 11400000, guid: 3e2aa09a53a780c4c8f607ac5d3fdd66, type: 2}
-  m_startTokens: 10
+  m_startTokens: 20
