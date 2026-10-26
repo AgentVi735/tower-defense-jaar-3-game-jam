@@ -15,6 +15,8 @@ namespace FckAI.Core
         [SerializeField] private Camera m_camera;
         public Camera m_Camera => m_camera;
 
+        public static int s_Tokens;
+
         private void Awake()
         {
             if (Instance != null)
@@ -24,7 +26,13 @@ namespace FckAI.Core
             }
 
             Instance = this;
+            SetData();
             FindAnyObjectByType<TowerSelectUI>().Initialise();
+        }
+
+        private void SetData()
+        {
+            s_Tokens = m_gameData.m_StartTokens;
         }
     }
 }

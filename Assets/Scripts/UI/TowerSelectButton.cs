@@ -1,4 +1,5 @@
-﻿using FckAI.Towers;
+﻿using FckAI.Core;
+using FckAI.Towers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -20,7 +21,11 @@ namespace FckAI.UI.Towers
         
         public override void OnPointerClick(PointerEventData eventData)
         {
+            if (eventData.button != PointerEventData.InputButton.Left)
+                return;
+            
             Press();
+            
             base.OnPointerClick(eventData);
         }
 
@@ -32,7 +37,15 @@ namespace FckAI.UI.Towers
 
         private void Press()
         {
+            if (!IsActive() || !IsInteractable())
+                return;
+            
             TowerSelectUI.s_Instance.OnSelectButton(m_TowerData);
+        }
+
+        public void RefreshAvailability()
+        {
+            interactable = GameManager.s_Tokens >= m_TowerData.m_BaseCost;
         }
     }
 }

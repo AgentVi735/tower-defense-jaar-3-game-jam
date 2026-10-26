@@ -10,9 +10,13 @@ namespace FckAI.UI.Towers
         [AutoStaticsCleanup]
         public static TowerSelectUI s_Instance { get; private set; }
 
+        public bool m_IsActive => gameObject.activeInHierarchy;
+        
         [SerializeField] private Transform m_buttonParent;
         [SerializeField] private TowerSelectButton m_buttonPrefab;
         private TowerSelectButton[] m_buttons;
+        [SerializeField] private GameObject m_deselectButton;
+        private TowerSlot m_currentSlot;
 
         private void Awake()
         {
@@ -32,6 +36,7 @@ namespace FckAI.UI.Towers
             s_Instance = this;
             SpawnButtons();
             gameObject.SetActive(false);
+            m_deselectButton.SetActive(false);
         }
         
         private void SpawnButtons()
@@ -55,25 +60,42 @@ namespace FckAI.UI.Towers
                 s_Instance = null;
         }
 
-        public void Show(Vector3 position)
+        public void Show(Vector3 position, TowerSlot slot)
         {
-            if (gameObject.activeInHierarchy)
+            if (m_IsActive)
                 return;
-            
+
+            m_currentSlot = slot;
             transform.position = position;
+            
+            foreach (TowerSelectButton button in m_buttons)
+                button.RefreshAvailability();
+            
             gameObject.SetActive(true);
+            m_deselectButton.SetActive(true);
         }
 
+        public void Cancel()
+        {
+            Hide();
+        }
+        
         private void Hide()
         {
-            if (!gameObject.activeInHierarchy)
+            if (!m_IsActive)
                 return;
             
             gameObject.SetActive(false);
+            m_deselectButton.SetActive(false);
+            if (!m_currentSlot) return;
+            m_currentSlot.OnCancelPlacement();
+            m_currentSlot = null;
         }
         
         public void OnSelectButton(TowerData data)
         {
+            m_currentSlot.PlaceTower(data);
+            Debug.Log(GameManager.s_Tokens);
             Hide();
         }
     }

@@ -8,5 +8,7 @@ namespace FckAI.Core
     {
         [SerializeField] private TowerData[] m_towers;
         public TowerData[] m_Towers => m_towers;
+        [SerializeField] private int m_startTokens;
+        public int m_StartTokens => m_startTokens;
     }
 }
