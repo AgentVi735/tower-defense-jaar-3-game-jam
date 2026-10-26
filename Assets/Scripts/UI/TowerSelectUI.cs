@@ -17,6 +17,7 @@ namespace FckAI.UI.Towers
         private void Awake()
         {
             if (s_Instance == null) return;
+            if (s_Instance == this) return;
             Destroy(gameObject);
         }
 
