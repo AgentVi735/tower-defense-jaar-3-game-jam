@@ -1,4 +1,6 @@
-﻿using FckAI.Towers;
+﻿using FckAI.Core.Waves;
+using FckAI.Enemies;
+using FckAI.Towers;
 using UnityEngine;
 
 namespace FckAI.Core
@@ -8,7 +10,9 @@ namespace FckAI.Core
     {
         [SerializeField] private TowerData[] m_towers;
         public TowerData[] m_Towers => m_towers;
-        [SerializeField] private int m_startTokens;
-        public int m_StartTokens => m_startTokens;
+        [SerializeField] private WaveData m_startWave;
+        public WaveData m_StartWave => m_startWave;
+        [SerializeField] private EnemyData[] m_enemyOrder;
+        public EnemyData[] m_EnemyOrder => m_enemyOrder;
     }
 }

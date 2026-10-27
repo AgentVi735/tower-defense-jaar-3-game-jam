@@ -1,4 +1,5 @@
-﻿using FckAI.UI.Towers;
+﻿using FckAI.Core.Waves;
+using FckAI.UI.Towers;
 using Unity.Scripting.LifecycleManagement;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ namespace FckAI.Core
         [SerializeField] private Camera m_camera;
         public Camera m_Camera => m_camera;
 
-        public static int s_Tokens;
+        public static int s_Tokens = 0;
 
         private void Awake()
         {
@@ -26,14 +27,11 @@ namespace FckAI.Core
             }
 
             Instance = this;
-            SetData();
             FindAnyObjectByType<TowerSelectUI>().Initialise();
             FindAnyObjectByType<TowerUpgradeUI>().Initialise();
-        }
-
-        private void SetData()
-        {
-            s_Tokens = m_gameData.m_StartTokens;
+            FindAnyObjectByType<WaveManager>().Initialise();
+            
+            WaveManager.s_Instance.StartWave();
         }
     }
 }

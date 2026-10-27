@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec7578f6ad8413db8187772d6874658, type: 3}
+  m_Name: Wave 2
+  m_EditorClassIdentifier: Assembly-CSharp::FckAI.Core.Waves.WaveData
+  m_nextWave: {fileID: 0}
+  m_extraStartTokens: 10
+  m_enemyCount:
+  - key: {fileID: 11400000, guid: b8a858a7f016d314a823d6f25ed41e99, type: 2}
+    value: 10
+  m_enemyModifiers:
+  - {fileID: 11400000, guid: 53d0fb629cba41e4c8455a5177ad4334, type: 2}
