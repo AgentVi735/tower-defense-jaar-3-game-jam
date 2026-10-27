@@ -18,5 +18,7 @@ namespace FckAI.Enemies
         public float m_Health => m_health;
         [SerializeField] private float m_speed;
         public float m_Speed => m_speed;
+        [SerializeField] private int m_reward;
+        public int m_Reward => m_reward;
     }
 }

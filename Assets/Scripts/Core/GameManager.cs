@@ -17,7 +17,7 @@ namespace FckAI.Core
         [SerializeField] private Camera m_camera;
         public Camera m_Camera => m_camera;
 
-        public static int s_Tokens = 0;
+        public static int s_Tokens { get; private set; }
 
         private void Awake()
         {
@@ -28,12 +28,18 @@ namespace FckAI.Core
             }
 
             s_Instance = this;
+            s_Tokens = 0;
             FindAnyObjectByType<TowerSelectUI>().Initialise();
             FindAnyObjectByType<TowerUpgradeUI>().Initialise();
             FindAnyObjectByType<WaveManager>().Initialise();
             FindAnyObjectByType<EnemyManager>().Initialise();
             
             WaveManager.s_Instance.StartWave();
+        }
+
+        public static void AddTokens(int amount)
+        {
+            s_Tokens += amount;
         }
     }
 }

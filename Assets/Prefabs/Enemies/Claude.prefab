@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Claude
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6b4e9f57c8a197488e24bdc8e4f16e6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -83,6 +87,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e6b4e9f57c8a197488e24bdc8e4f16e6, type: 3}
       insertIndex: 1
       addedObject: {fileID: 8099824919080051855}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e6b4e9f57c8a197488e24bdc8e4f16e6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5021684139012557537}
   m_SourcePrefab: {fileID: 100100000, guid: e6b4e9f57c8a197488e24bdc8e4f16e6, type: 3}
 --- !u!1 &4313385814593660663 stripped
 GameObject:
@@ -101,3 +108,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38499d37f8204601b78bdc2c2c4a08c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Enemies.EnemyController
+--- !u!65 &-5021684139012557537
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4313385814593660663}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.0998693, y: 0.68999994, z: 5.078239}
+  m_Center: {x: -0.0052967067, y: -0.27499998, z: 0.008106469}

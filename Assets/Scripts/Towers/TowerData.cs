@@ -16,6 +16,8 @@ namespace FckAI.Towers
         public float m_BaseCooldown => m_baseCooldown;
         [SerializeField] private float m_baseRange;
         public float m_BaseRange => m_baseRange;
+        [SerializeField] private float m_baseProjectileSpeed;
+        public float m_BaseProjectileSpeed => m_baseProjectileSpeed;
         [SerializeField] private Tower m_prefab;
         public Tower m_Prefab => m_prefab;
 

@@ -5,35 +5,44 @@ namespace FckAI.Enemies
 {
     public class EnemyController : MonoBehaviour
     {
-        private EnemyData m_data;
+        public EnemyData m_Data { get; private set; }
+        private EnemyModifierData m_currentModifier;
 
-        private EnemyWaypoint m_currentWaypoint;
+        public EnemyWaypoint m_CurrentWaypoint { get; private set; }
 
-        private NavMeshPath m_path;
-        private int m_pathIdx;
-        
+        public NavMeshPath m_Path { get; private set; }
+        public int m_PathIdx { get; private set; }
+
+        private float m_speed;
+        private float m_health;
+
+        public float GetSpeed() => m_currentModifier != null ? m_currentModifier.m_NewSpeed : m_Data.m_Speed;
+        public float GetHealth() => m_currentModifier != null ? m_currentModifier.m_NewHealth : m_Data.m_Health;
+
         public void Initialise(EnemyData data)
         {
-            m_data = data;
+            m_Data = data;
             gameObject.SetActive(false);
         }
 
         public void EnableEnemy()
         {
-            m_currentWaypoint = EnemyManager.s_Instance.m_StartingPoint;
-            transform.position = m_currentWaypoint.transform.position;
+            m_CurrentWaypoint = EnemyManager.s_Instance.m_StartingPoint;
+            transform.position = m_CurrentWaypoint.transform.position;
+            m_speed = GetSpeed();
+            m_health = GetHealth();
             gameObject.SetActive(true);
             GetNewPath();
         }
 
         private void GetNewPath()
         {
-            if (m_currentWaypoint.m_NextWaypoint == null)
+            if (m_CurrentWaypoint.m_NextWaypoint == null)
             {
                 EnemyManager.s_Instance.DisableEnemy(this);
                 return;
             }
-            m_currentWaypoint = m_currentWaypoint.m_NextWaypoint;
+            m_CurrentWaypoint = m_CurrentWaypoint.m_NextWaypoint;
             bool couldHit = NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 3, 1);
             if (!couldHit)
             {
@@ -41,9 +50,9 @@ namespace FckAI.Enemies
                 return;
             }
 
-            m_path = new NavMeshPath();
-            NavMesh.CalculatePath(hit.position, m_currentWaypoint.transform.position, 1, m_path);
-            m_pathIdx = 0;
+            m_Path = new NavMeshPath();
+            NavMesh.CalculatePath(hit.position, m_CurrentWaypoint.transform.position, 1, m_Path);
+            m_PathIdx = 0;
         }
 
         public void Move()
@@ -51,10 +60,10 @@ namespace FckAI.Enemies
             if (!gameObject.activeInHierarchy)
                 return;
             
-            Vector3 posToMoveToGlobal = m_path.corners[m_pathIdx];
+            Vector3 posToMoveToGlobal = m_Path.corners[m_PathIdx];
             Vector3 posToMoveToLocal = posToMoveToGlobal - transform.position;
 
-            Vector3 movePos = posToMoveToLocal.normalized * (m_data.m_Speed * Time.deltaTime);
+            Vector3 movePos = posToMoveToLocal.normalized * (m_speed * Time.deltaTime);
 
             transform.Translate(movePos);
         
@@ -63,9 +72,16 @@ namespace FckAI.Enemies
             float distance = Vector3.Distance(posToMoveToGlobal, diffPos);
         
             if (!(distance < 0.5f)) return;
-            m_pathIdx++;
-            if (m_path.corners.Length > m_pathIdx) return;
+            m_PathIdx++;
+            if (m_Path.corners.Length > m_PathIdx) return;
             GetNewPath();
+        }
+
+        public void Damage(float damage)
+        {
+            m_health -= damage;
+            if (m_health <= 0)
+                EnemyManager.s_Instance.DisableEnemy(this);
         }
     }
 }

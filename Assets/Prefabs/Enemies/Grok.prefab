@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grok
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 256ae87b90acbb14eaa7edbe6e5f2489, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -83,6 +87,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 256ae87b90acbb14eaa7edbe6e5f2489, type: 3}
       insertIndex: 1
       addedObject: {fileID: 2984637536179955377}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 256ae87b90acbb14eaa7edbe6e5f2489, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8832597187899719334}
   m_SourcePrefab: {fileID: 100100000, guid: 256ae87b90acbb14eaa7edbe6e5f2489, type: 3}
 --- !u!1 &1211529846143405005 stripped
 GameObject:
@@ -101,3 +108,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38499d37f8204601b78bdc2c2c4a08c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Enemies.EnemyController
+--- !u!65 &8832597187899719334
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211529846143405005}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.140404, y: 0.6900002, z: 5.141971}
+  m_Center: {x: 0.017454742, y: -0.2750001, z: -0.030992744}

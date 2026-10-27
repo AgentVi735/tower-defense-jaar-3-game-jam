@@ -13,7 +13,7 @@ namespace FckAI.Enemies
         public static EnemyManager s_Instance;
 
         private Dictionary<EnemyData, EnemyController[]> m_enemies;
-        private List<EnemyController> m_activeEnemies;
+        public List<EnemyController> m_ActiveEnemies { get; private set; }
 
         [SerializeField] private EnemyWaypoint m_startingPoint;
         public EnemyWaypoint m_StartingPoint => m_startingPoint;
@@ -63,7 +63,7 @@ namespace FckAI.Enemies
                 m_enemies.TryAdd(enemyData, controllers.ToArray());
             }
 
-            m_activeEnemies = new List<EnemyController>();
+            m_ActiveEnemies = new List<EnemyController>();
         }
 
         public IEnumerator SpawnNewWave(WaveData waveData)
@@ -95,7 +95,7 @@ namespace FckAI.Enemies
                 {
                     EnemyController controller = enemies[i];
                     controller.EnableEnemy();
-                    m_activeEnemies.Add(controller);
+                    m_ActiveEnemies.Add(controller);
                     yield return m_waitSpawnDelay;
                 }
             }
@@ -103,10 +103,10 @@ namespace FckAI.Enemies
 
         private void Update()
         {
-            if (m_activeEnemies.Count == 0)
+            if (m_ActiveEnemies.Count == 0)
                 return;
             
-            foreach (EnemyController enemy in m_activeEnemies.ToArray())
+            foreach (EnemyController enemy in m_ActiveEnemies.ToArray())
             {
                 enemy.Move();
             }
@@ -115,7 +115,11 @@ namespace FckAI.Enemies
         public void DisableEnemy(EnemyController controller)
         {
             controller.gameObject.SetActive(false);
-            m_activeEnemies.Remove(controller);
+            m_ActiveEnemies.Remove(controller);
+            GameManager.AddTokens(controller.m_Data.m_Reward);
+            
+            if (m_ActiveEnemies.Count == 0)
+                WaveManager.s_Instance.EndWave();
         }
     }
 }

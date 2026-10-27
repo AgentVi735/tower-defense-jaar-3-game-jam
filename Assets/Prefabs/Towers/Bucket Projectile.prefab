@@ -59,5 +59,26 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6b2c72f37ff83f04a912f291c4be6605, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 6750103932198525106}
   m_SourcePrefab: {fileID: 100100000, guid: 6b2c72f37ff83f04a912f291c4be6605, type: 3}
+--- !u!1 &3038001799610319509 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6b2c72f37ff83f04a912f291c4be6605, type: 3}
+  m_PrefabInstance: {fileID: 2803578022593593284}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6750103932198525106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3038001799610319509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f39562b4c0c4b82b8d72395ffe9ca6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FckAI.Towers.PaintProjectile
+  m_percentageOfTimeToGoUp: 0.2

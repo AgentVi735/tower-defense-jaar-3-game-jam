@@ -17,4 +17,4 @@ MonoBehaviour:
   m_cost: 10
   m_newDamage: 0
   m_newCooldown: 0
-  m_newRange: 0
+  m_newRange: 15

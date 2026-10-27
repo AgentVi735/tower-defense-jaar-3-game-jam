@@ -16,6 +16,8 @@ namespace FckAI.Towers
         [SerializeField] private float m_newCooldown;
         public float m_NewCooldown => m_newCooldown;
         [SerializeField] private float m_newRange;
+        [SerializeField] private float m_newProjectileSpeed;
+        public float m_NewProjectileSpeed => m_newProjectileSpeed;
         public float m_NewRange => m_newRange;
     }
 }

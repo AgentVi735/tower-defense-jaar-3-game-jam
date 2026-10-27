@@ -50,7 +50,7 @@ namespace FckAI.Towers
         public void PlaceTower(TowerData data)
         {
             m_isSelected = false;
-            GameManager.s_Tokens -= data.m_BaseCost;
+            GameManager.AddTokens(-data.m_BaseCost);
             m_tower = Instantiate(data.m_Prefab, m_spawnTransform);
             m_tower.Initialise(data);
             m_slotRenderer.Toggle(false);

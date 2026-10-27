@@ -14,5 +14,7 @@ namespace FckAI.Core
         public WaveData m_StartWave => m_startWave;
         [SerializeField] private EnemyData[] m_enemyOrder;
         public EnemyData[] m_EnemyOrder => m_enemyOrder;
+        [SerializeField] private LayerMask m_enemyLayer;
+        public LayerMask m_EnemyLayer => m_enemyLayer;
     }
 }

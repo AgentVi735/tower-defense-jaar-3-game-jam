@@ -1,11 +1,12 @@
 using System.Collections;
 using FckAI.Core;
+using FckAI.Enemies;
 using FckAI.UI.Towers;
 using UnityEngine;
 
 namespace FckAI.Towers
 {
-    public class Tower : MonoBehaviour
+    public abstract class Tower : MonoBehaviour
     {
         public TowerData m_Data { get; private set; }
         private int m_currentLevel;
@@ -23,31 +24,37 @@ namespace FckAI.Towers
         private bool m_isHovering;
         private bool m_isSelected;
 
-        private float m_currentDamage;
-        private float m_currentCooldown;
-        private float m_currentRange;
+        protected float m_currentDamage { get; private set; }
+        protected float m_currentCooldown { get; private set; }
+        protected WaitForSeconds m_waitCurrentCooldown { get; private set; }
+        protected float m_currentRange { get; private set; }
+        protected float m_currentProjectileSpeed { get; private set; }
 
         public virtual void Initialise(TowerData data)
         {
             m_Data = data;
             m_currentDamage = m_Data.m_BaseDamage;
             m_currentCooldown = m_Data.m_BaseCooldown;
+            m_waitCurrentCooldown = new WaitForSeconds(m_currentCooldown);
             m_currentRange = m_Data.m_BaseRange;
+            m_currentProjectileSpeed = m_Data.m_BaseProjectileSpeed;
             m_currentLevel = 1;
             m_NextLevel = m_Data.m_NextLevel;
         }
-
+        
         public virtual void Upgrade()
         {
             if (GameManager.s_Tokens < m_NextLevel.m_Cost)
                 return;
 
-            GameManager.s_Tokens -= m_NextLevel.m_Cost;
+            GameManager.AddTokens(-m_NextLevel.m_Cost);
             
             m_currentLevel++;
             m_currentDamage = m_NextLevel.m_NewDamage;
             m_currentCooldown = m_NextLevel.m_NewCooldown;
+            m_waitCurrentCooldown = new WaitForSeconds(m_currentCooldown);
             m_currentRange = m_NextLevel.m_NewRange;
+            m_currentProjectileSpeed = m_NextLevel.m_NewProjectileSpeed;
             m_NextLevel = m_NextLevel.m_NextLevel;
         }
 
@@ -135,6 +142,14 @@ namespace FckAI.Towers
 
             foreach (Material material in m_meshRenderer.materials)
                 material.color = endColor;
+        }
+
+        protected abstract void Attack();
+        protected abstract IEnumerator StartCooldown();
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.DrawWireSphere(transform.position, m_Data.m_BaseRange);
         }
     }
 }

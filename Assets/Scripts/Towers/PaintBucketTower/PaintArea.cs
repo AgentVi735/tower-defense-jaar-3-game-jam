@@ -1,0 +1,89 @@
+﻿using System;
+using System.Collections;
+using FckAI.Core;
+using FckAI.Enemies;
+using UnityEngine;
+
+namespace FckAI.Towers.PaintBucket
+{
+    public class PaintArea : MonoBehaviour
+    {
+        [SerializeField] private BoxCollider m_boxCollider;
+        
+        private float m_damage;
+        private float m_maxTime;
+        private float m_currentTime;
+        private WaitForSeconds m_waitTick;
+
+        private Collider[] m_colliders;
+
+        private Vector3 m_size;
+
+        private bool m_isActive;
+
+        public void Initialise(float maxTime, float tickTime)
+        {
+            gameObject.SetActive(false);
+
+            float sizeX = m_boxCollider.size.x * transform.localScale.x;
+            float sizeY = m_boxCollider.size.y * transform.localScale.y;
+            float sizeZ = m_boxCollider.size.z * transform.localScale.z;
+
+            m_size = new Vector3(sizeX, sizeY, sizeZ);
+            m_maxTime = maxTime;
+            m_waitTick = new WaitForSeconds(tickTime);
+
+            m_colliders = new Collider[5];
+        }
+        
+        public void Show(Vector3 position, float damage)
+        {
+            transform.position = position;
+            m_damage = damage;
+            m_currentTime = m_maxTime;
+            gameObject.SetActive(true);
+            StartCoroutine(HitLoop());
+        }
+        
+        private void Update()
+        {
+            if (!m_isActive) return;
+            m_currentTime -= Time.deltaTime;
+            if (!(m_currentTime <= 0)) return;
+            m_isActive = false;
+            gameObject.SetActive(false);
+        }
+
+        private IEnumerator HitLoop()
+        {
+            m_isActive = true;
+            while (m_isActive)
+            {
+                CheckForHit();
+                
+                yield return m_waitTick;
+            }
+        }
+
+        private void CheckForHit()
+        {
+            int hitCount = Physics.OverlapBoxNonAlloc(transform.position + m_boxCollider.center, m_size, m_colliders,
+                transform.rotation, GameManager.s_Instance.m_GameData.m_EnemyLayer);
+            if (hitCount == 0) return;
+
+            foreach (Collider collider in m_colliders)
+            {
+                if (collider == null)
+                    continue;
+
+                EnemyController enemy = collider.GetComponent<EnemyController>();
+                enemy.Damage(m_damage);
+            }
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.DrawWireCube(transform.position + m_boxCollider.center, m_size);
+        }
+    }
+}

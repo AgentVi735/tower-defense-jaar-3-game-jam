@@ -32,8 +32,24 @@ namespace FckAI.Core.Waves
 
         public void StartWave()
         {
-            GameManager.s_Tokens += m_currentWave.m_ExtraStartTokens;
+            GameManager.AddTokens(m_currentWave.m_ExtraStartTokens);
             StartCoroutine(EnemyManager.s_Instance.SpawnNewWave(m_currentWave));
+        }
+
+        public void EndWave()
+        {
+            GoToNextWave();
+        }
+
+        private void GoToNextWave()
+        {
+            if (m_currentWave.m_NextWave == null)
+            {
+                Debug.Log("All waves cleared");
+                return;
+            }
+            m_currentWave = m_currentWave.m_NextWave;
+            StartWave();
         }
     }
 }
