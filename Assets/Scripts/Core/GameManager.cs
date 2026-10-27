@@ -1,4 +1,5 @@
 ﻿using FckAI.Core.Waves;
+using FckAI.Enemies;
 using FckAI.UI.Towers;
 using Unity.Scripting.LifecycleManagement;
 using UnityEngine;
@@ -30,6 +31,7 @@ namespace FckAI.Core
             FindAnyObjectByType<TowerSelectUI>().Initialise();
             FindAnyObjectByType<TowerUpgradeUI>().Initialise();
             FindAnyObjectByType<WaveManager>().Initialise();
+            FindAnyObjectByType<EnemyManager>().Initialise();
             
             WaveManager.s_Instance.StartWave();
         }
