@@ -41,7 +41,7 @@ namespace FckAI.UI.Towers
         
         private void SpawnButtons()
         {
-            TowerData[] towers = GameManager.Instance.m_GameData.m_Towers;
+            TowerData[] towers = GameManager.s_Instance.m_GameData.m_Towers;
             int count = towers.Length;
             m_buttons = new TowerSelectButton[count];
 

@@ -9,7 +9,7 @@ namespace FckAI.Core
     [AutoStaticsCleanup]
     public partial class GameManager : MonoBehaviour
     {
-        public static GameManager Instance;
+        public static GameManager s_Instance;
         
         [SerializeField] private GameData m_gameData;
         public GameData m_GameData => m_gameData;
@@ -21,13 +21,13 @@ namespace FckAI.Core
 
         private void Awake()
         {
-            if (Instance != null)
+            if (s_Instance != null)
             {
                 Destroy(gameObject);
                 return;
             }
 
-            Instance = this;
+            s_Instance = this;
             FindAnyObjectByType<TowerSelectUI>().Initialise();
             FindAnyObjectByType<TowerUpgradeUI>().Initialise();
             FindAnyObjectByType<WaveManager>().Initialise();

@@ -76,7 +76,7 @@ namespace FckAI.Towers
 
             m_isSelected = true;
             Vector3 slotPos = m_uiOffset + transform.position;
-            Vector2 uiPos = GameManager.Instance.m_Camera.WorldToScreenPoint(slotPos);
+            Vector2 uiPos = GameManager.s_Instance.m_Camera.WorldToScreenPoint(slotPos);
             TowerUpgradeUI.s_Instance.Show(uiPos, this);
         }
         

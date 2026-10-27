@@ -1,4 +1,5 @@
-﻿using Unity.Scripting.LifecycleManagement;
+﻿using FckAI.Enemies;
+using Unity.Scripting.LifecycleManagement;
 using UnityEngine;
 
 namespace FckAI.Core.Waves
@@ -26,12 +27,13 @@ namespace FckAI.Core.Waves
             }
 
             s_Instance = this;
-            m_currentWave = GameManager.Instance.m_GameData.m_StartWave;
+            m_currentWave = GameManager.s_Instance.m_GameData.m_StartWave;
         }
 
         public void StartWave()
         {
             GameManager.s_Tokens += m_currentWave.m_ExtraStartTokens;
+            StartCoroutine(EnemyManager.s_Instance.SpawnNewWave(m_currentWave));
         }
     }
 }
