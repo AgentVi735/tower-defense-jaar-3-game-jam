@@ -546,7 +546,7 @@ MonoBehaviour:
       type: {class: URPExposureSettings, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
       data:
         version: 1
-        m_UseExposure: 0
+        m_UseExposure: 1
     - rid: 8840786568971812866
       type: {class: URPLightFalloffSettings, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
       data:
