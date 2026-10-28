@@ -21,9 +21,9 @@ namespace FckAI.Towers.PaintBucket
 
         private bool m_hasCooldown;
 
-        public override void Initialise(TowerData data)
+        public override void Initialise(TowerData data, Vector3 uiOffset)
         {
-            base.Initialise(data);
+            base.Initialise(data, uiOffset);
             m_Data = (PaintBucketData)base.m_Data;
             m_projectile = Instantiate(m_Data.m_PaintProjectilePrefab, transform.position, Quaternion.identity, transform);
             m_projectile.ChangeSpeed(m_currentProjectileSpeed);

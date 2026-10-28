@@ -12,8 +12,9 @@ namespace FckAI.Towers
         private int m_currentLevel;
         public TowerLevel m_NextLevel { get; private set; }
         [SerializeField] private MeshRenderer m_meshRenderer;
+        [SerializeField] private Transform m_rangeTransform;
 
-        [SerializeField] private Vector3 m_uiOffset;
+        private Vector3 m_uiOffset;
 
         [SerializeField] private Color m_defaultColor = Color.white;
         [SerializeField] private Color m_hoverColor = Color.white;
@@ -30,7 +31,7 @@ namespace FckAI.Towers
         protected float m_currentRange { get; private set; }
         protected float m_currentProjectileSpeed { get; private set; }
 
-        public virtual void Initialise(TowerData data)
+        public virtual void Initialise(TowerData data, Vector3 uiOffset)
         {
             m_Data = data;
             m_currentDamage = m_Data.m_BaseDamage;
@@ -40,6 +41,7 @@ namespace FckAI.Towers
             m_currentProjectileSpeed = m_Data.m_BaseProjectileSpeed;
             m_currentLevel = 1;
             m_NextLevel = m_Data.m_NextLevel;
+            m_uiOffset = uiOffset;
         }
         
         public virtual void Upgrade()
@@ -73,6 +75,7 @@ namespace FckAI.Towers
         public void OnDeselect()
         {
             m_isSelected = false;
+            m_rangeTransform.gameObject.SetActive(false);
             if (!m_isHovering)
                 ToggleHover(false);
         }
@@ -85,6 +88,9 @@ namespace FckAI.Towers
             Vector3 slotPos = m_uiOffset + transform.position;
             Vector2 uiPos = GameManager.s_Instance.m_Camera.WorldToScreenPoint(slotPos);
             TowerUpgradeUI.s_Instance.Show(uiPos, this);
+
+            m_rangeTransform.localScale = Vector3.one * (m_currentRange * 2);
+            m_rangeTransform.gameObject.SetActive(true);
         }
         
         private void ToggleHover(bool toggle)

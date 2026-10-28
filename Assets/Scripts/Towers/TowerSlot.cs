@@ -52,7 +52,7 @@ namespace FckAI.Towers
             m_isSelected = false;
             GameManager.AddTokens(-data.m_BaseCost);
             m_tower = Instantiate(data.m_Prefab, m_spawnTransform);
-            m_tower.Initialise(data);
+            m_tower.Initialise(data, m_uiOffset);
             m_slotRenderer.Toggle(false);
             m_boxCollider.enabled = false;
         }
