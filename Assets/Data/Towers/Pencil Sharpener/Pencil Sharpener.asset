@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36583ec8e434a6a8efa650faba28172, type: 3}
+  m_Name: Pencil Sharpener
+  m_EditorClassIdentifier: Assembly-CSharp::FckAI.Towers.PencilSharpener.PencilSharpenerData
+  m_towerName: Pencil Sharpener
+  m_nextLevel: {fileID: 11400000, guid: de21d2a166cb4b246a16a801c14e590f, type: 2}
+  m_baseCost: 10
+  m_baseDamage: 3
+  m_baseCooldown: 1.2
+  m_baseRange: 6
+  m_baseProjectileSpeed: 0.5
+  m_prefab: {fileID: 2929692736076873622, guid: f65e47e6170471f4eb4efafe41957701, type: 3}
+  m_pencilProjectilePrefab: {fileID: 8113700586041239700, guid: b28651938818fd2439b892a0cb9f5cf1, type: 3}
+  m_maxPencilProjectiles: 5

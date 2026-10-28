@@ -23,13 +23,12 @@ namespace FckAI.Towers.PaintBucket
             m_startPosition = shootPosition;
         }
         
-        public void ChangeSpeed(float newSpeed) => m_speed = newSpeed;
-        
         public void Shoot(EnemyController enemyTrans)
         {
             m_target = enemyTrans;
             m_meshRenderer.material.color =
                 m_tower.m_Data.m_PaintColors[Random.Range(0, m_tower.m_Data.m_PaintColors.Length)];
+            m_speed = m_tower.m_currentProjectileSpeed;
             gameObject.SetActive(true);
             StartCoroutine(ShootCoroutine());
         }

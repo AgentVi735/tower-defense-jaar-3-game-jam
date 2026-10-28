@@ -26,7 +26,6 @@ namespace FckAI.Towers.PaintBucket
             base.Initialise(data, uiOffset);
             m_Data = (PaintBucketData)base.m_Data;
             m_projectile = Instantiate(m_Data.m_PaintProjectilePrefab, transform.position, Quaternion.identity, transform);
-            m_projectile.ChangeSpeed(m_currentProjectileSpeed);
             m_projectile.Initialise(this, m_shootTransform.position);
             m_areas = new PaintArea[m_Data.m_MaxPaintAreas];
             for (int i = 0; i < m_Data.m_MaxPaintAreas; i++)
@@ -64,12 +63,6 @@ namespace FckAI.Towers.PaintBucket
             m_hasCooldown = false;
         }
 
-        public override void Upgrade()
-        {
-            base.Upgrade();
-            m_projectile.ChangeSpeed(m_currentProjectileSpeed);
-        }
-
         private PaintArea GetNewArea()
         {
             PaintArea area = m_areas.FirstOrDefault(paintArea => !paintArea.gameObject.activeInHierarchy);
@@ -77,7 +70,6 @@ namespace FckAI.Towers.PaintBucket
             if (area != null) return area;
             Debug.LogWarning("Unable to pool a paint area");
             return null;
-
         }
         
         public void ShowNewArea(Vector3 position, Color splashColor)

@@ -25,11 +25,11 @@ namespace FckAI.Towers
         private bool m_isHovering;
         private bool m_isSelected;
 
-        protected float m_currentDamage { get; private set; }
+        public float m_currentDamage { get; private set; }
         protected float m_currentCooldown { get; private set; }
         protected WaitForSeconds m_waitCurrentCooldown { get; private set; }
         protected float m_currentRange { get; private set; }
-        protected float m_currentProjectileSpeed { get; private set; }
+        public float m_currentProjectileSpeed { get; private set; }
 
         public virtual void Initialise(TowerData data, Vector3 uiOffset)
         {

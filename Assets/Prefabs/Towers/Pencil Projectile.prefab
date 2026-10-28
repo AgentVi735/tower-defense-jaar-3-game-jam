@@ -59,5 +59,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a35e04e5c99c0004fbd46380caeded88, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 8113700586041239700}
   m_SourcePrefab: {fileID: 100100000, guid: a35e04e5c99c0004fbd46380caeded88, type: 3}
+--- !u!23 &437323256636361444 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: a35e04e5c99c0004fbd46380caeded88, type: 3}
+  m_PrefabInstance: {fileID: 1283590277532046944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2094546970893642545 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a35e04e5c99c0004fbd46380caeded88, type: 3}
+  m_PrefabInstance: {fileID: 1283590277532046944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8113700586041239700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094546970893642545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f5a3ffff4ad406ab9a57b327263330a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FckAI.Towers.PencilSharpener.PencilProjectile
+  m_meshRenderer: {fileID: 437323256636361444}
+  m_percentageOfTimeToGoUp: 0
