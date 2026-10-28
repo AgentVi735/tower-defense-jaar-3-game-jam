@@ -140,9 +140,10 @@ namespace FckAI.Enemies
         {
             controller.gameObject.SetActive(false);
             m_ActiveEnemies.Remove(controller);
-            GameManager.AddTokens(controller.m_Data.m_Reward);
             if (shouldDoDamage)
                 BaseManager.s_Instance.AddHealth(-controller.m_Data.m_Damage);
+            else
+                GameManager.AddTokens(controller.m_Data.m_Reward);
             
             if (m_ActiveEnemies.Count == 0)
                 WaveManager.s_Instance.EndWave();
