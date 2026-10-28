@@ -16,7 +16,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3e2aa09a53a780c4c8f607ac5d3fdd66, type: 2}
   m_startWave: {fileID: 11400000, guid: 736ffd384c38ce54f95595c300356d30, type: 2}
   m_enemyOrder:
+  - {fileID: 11400000, guid: bd15612871baeec46a257c74a32a445c, type: 2}
+  - {fileID: 11400000, guid: 429b37172606acf4abc54e60211b7bc0, type: 2}
   - {fileID: 11400000, guid: b8a858a7f016d314a823d6f25ed41e99, type: 2}
+  - {fileID: 11400000, guid: 123fb84e248075e48b3d8cdf7085462a, type: 2}
+  - {fileID: 11400000, guid: 4f67d278e2447c942b9d87ff46a44da5, type: 2}
   m_enemyLayer:
     serializedVersion: 2
     m_Bits: 128

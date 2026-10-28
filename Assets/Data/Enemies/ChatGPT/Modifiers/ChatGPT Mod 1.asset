@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ChatGPT Mod 1
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Enemies.EnemyModifierData
   m_targetEnemy: {fileID: 11400000, guid: b8a858a7f016d314a823d6f25ed41e99, type: 2}
-  m_newDamage: 1
-  m_newHealth: 11
-  m_newSpeed: 5.3
+  m_newDamage: 5
+  m_newHealth: 15
+  m_newSpeed: 4.2

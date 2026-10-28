@@ -16,6 +16,6 @@ MonoBehaviour:
   m_description: double upgrade
   m_cost: 15
   m_newDamage: 6
-  m_newCooldown: 0.91
-  m_newRange: 10.75
-  m_newProjectileSpeed: 0.26
+  m_newCooldown: 2.6
+  m_newRange: 10.9
+  m_newProjectileSpeed: 0.32

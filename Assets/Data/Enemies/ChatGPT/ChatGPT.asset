@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Enemies.EnemyData
   m_enemyName: ChatGPT
   m_enemyPrefab: {fileID: -6829559643530546894, guid: a6b20136a5c13964fa82e28a8f159847, type: 3}
-  m_maxEnemyCount: 10
-  m_damage: 1
-  m_health: 10
-  m_speed: 5
-  m_reward: 1
+  m_maxEnemyCount: 30
+  m_damage: 5
+  m_health: 13
+  m_speed: 4
+  m_reward: 5

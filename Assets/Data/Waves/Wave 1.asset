@@ -15,6 +15,6 @@ MonoBehaviour:
   m_nextWave: {fileID: 11400000, guid: c9389ca055a520f45a99f1994682225c, type: 2}
   m_extraStartTokens: 10
   m_enemyCount:
-  - key: {fileID: 11400000, guid: b8a858a7f016d314a823d6f25ed41e99, type: 2}
+  - key: {fileID: 11400000, guid: bd15612871baeec46a257c74a32a445c, type: 2}
     value: 5
   m_enemyModifiers: []

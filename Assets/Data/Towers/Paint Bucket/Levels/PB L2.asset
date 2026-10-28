@@ -16,6 +16,6 @@ MonoBehaviour:
   m_description: biiiig ahh upgrade
   m_cost: 10
   m_newDamage: 6
-  m_newCooldown: 0.95
-  m_newRange: 10.3
-  m_newProjectileSpeed: 0.28
+  m_newCooldown: 2.8
+  m_newRange: 10.5
+  m_newProjectileSpeed: 0.36
