@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Towers.PaintBucket.PaintArea
   m_boxCollider: {fileID: 9216351882005751982}
+  m_meshRenderer: {fileID: 5010352233515995729}
 --- !u!33 &6483507118489247601
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -81,7 +82,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 008d3b25f7a759e4c9448a3d1f6b62d6, type: 2}
+  - {fileID: 2100000, guid: 1deb245c58818e4478912a4ff31bd78b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

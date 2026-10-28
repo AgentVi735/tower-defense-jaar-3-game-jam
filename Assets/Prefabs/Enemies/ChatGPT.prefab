@@ -108,6 +108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38499d37f8204601b78bdc2c2c4a08c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Enemies.EnemyController
+  m_meshRenderer: {fileID: 8525787644571235401}
+  m_hitColor: {r: 0.5188679, g: 0, b: 0, a: 1}
+  m_hitTime: 0.2
 --- !u!65 &-4834944482463313990
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -129,3 +132,8 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.0353227, y: 0.68999994, z: 5.025946}
   m_Center: {x: 0.0031850336, y: -0.27499998, z: 0.012889265}
+--- !u!23 &8525787644571235401 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 0cbd9b2acdb16a34882d7d33be2a8a7f, type: 3}
+  m_PrefabInstance: {fileID: 7030183963125065933}
+  m_PrefabAsset: {fileID: 0}

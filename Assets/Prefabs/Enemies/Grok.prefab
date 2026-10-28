@@ -91,6 +91,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8832597187899719334}
   m_SourcePrefab: {fileID: 100100000, guid: 256ae87b90acbb14eaa7edbe6e5f2489, type: 3}
+--- !u!23 &851404122409593368 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 256ae87b90acbb14eaa7edbe6e5f2489, type: 3}
+  m_PrefabInstance: {fileID: 2022501233660819100}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1211529846143405005 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 256ae87b90acbb14eaa7edbe6e5f2489, type: 3}
@@ -108,6 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38499d37f8204601b78bdc2c2c4a08c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Enemies.EnemyController
+  m_meshRenderer: {fileID: 851404122409593368}
+  m_hitColor: {r: 0.5188679, g: 0, b: 0, a: 1}
+  m_hitTime: 0.2
 --- !u!65 &8832597187899719334
 BoxCollider:
   m_ObjectHideFlags: 0

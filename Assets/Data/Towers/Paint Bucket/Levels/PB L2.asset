@@ -15,6 +15,7 @@ MonoBehaviour:
   m_nextLevel: {fileID: 11400000, guid: faba7d5d7f42bc940b6b51bdde89e777, type: 2}
   m_description: biiiig ahh upgrade
   m_cost: 10
-  m_newDamage: 0
-  m_newCooldown: 0
-  m_newRange: 15
+  m_newDamage: 6
+  m_newCooldown: 0.95
+  m_newRange: 10.3
+  m_newProjectileSpeed: 0.28

@@ -8,7 +8,7 @@ namespace FckAI.Towers.PaintBucket
 {
     public class PaintBucketTower : Tower
     {
-        private new PaintBucketData m_Data;
+        public new PaintBucketData m_Data { get; private set; }
 
         [SerializeField] private Transform m_shootTransform;
 
@@ -20,8 +20,6 @@ namespace FckAI.Towers.PaintBucket
         private Collider[] m_enemyCheckColl;
 
         private bool m_hasCooldown;
-
-        [SerializeField] private LayerMask m_enemyLayer;
 
         public override void Initialise(TowerData data)
         {
@@ -76,16 +74,13 @@ namespace FckAI.Towers.PaintBucket
         {
             PaintArea area = m_areas.FirstOrDefault(paintArea => !paintArea.gameObject.activeInHierarchy);
 
-            if (area == null)
-            {
-                Debug.LogWarning("Unable to pool a paint area");
-                return null;
-            }
+            if (area != null) return area;
+            Debug.LogWarning("Unable to pool a paint area");
+            return null;
 
-            return area;
         }
         
-        public void ShowNewArea(Vector3 position)
+        public void ShowNewArea(Vector3 position, Color splashColor)
         {
             StartCoroutine(StartCooldown());
 
@@ -94,7 +89,7 @@ namespace FckAI.Towers.PaintBucket
             if (area == null)
                 return;
             
-            area.Show(position, m_currentDamage);
+            area.Show(position, m_currentDamage, splashColor);
         }
     }
 }

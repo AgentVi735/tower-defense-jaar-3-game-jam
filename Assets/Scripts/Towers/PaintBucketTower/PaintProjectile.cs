@@ -13,6 +13,7 @@ namespace FckAI.Towers.PaintBucket
         
         private float m_speed;
 
+        [SerializeField] private MeshRenderer m_meshRenderer;
         [SerializeField] private float m_percentageOfTimeToGoUp;
 
         public void Initialise(PaintBucketTower tower, Vector3 shootPosition)
@@ -27,6 +28,8 @@ namespace FckAI.Towers.PaintBucket
         public void Shoot(EnemyController enemyTrans)
         {
             m_target = enemyTrans;
+            m_meshRenderer.material.color =
+                m_tower.m_Data.m_PaintColors[Random.Range(0, m_tower.m_Data.m_PaintColors.Length)];
             gameObject.SetActive(true);
             StartCoroutine(ShootCoroutine());
         }
@@ -61,7 +64,7 @@ namespace FckAI.Towers.PaintBucket
                 yield return null;
             }
 
-            m_tower.ShowNewArea(currentTargetPos);
+            m_tower.ShowNewArea(currentTargetPos, m_meshRenderer.material.color);
             gameObject.SetActive(false);
         }
     }

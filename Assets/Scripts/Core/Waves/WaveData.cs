@@ -16,7 +16,17 @@ namespace FckAI.Core.Waves
         [SerializeField] private Dictionary<EnemyData, int> m_enemyCount;
         public Dictionary<EnemyData, int> m_EnemyCount => m_enemyCount;
         
-        [SerializeField] private EnemyModifierData[] m_enemyModifiers;
-        public EnemyModifierData[] m_EnemyModifiers => m_enemyModifiers;
+        [SerializeField] private Dictionary<EnemyData, EnemyModifierData> m_enemyModifiers;
+
+        public EnemyModifierData GetEnemyModifier(EnemyData enemy)
+        {
+            if (!m_enemyModifiers.ContainsKey(enemy)) return null;
+
+            bool couldGetValue = m_enemyModifiers.TryGetValue(enemy, out EnemyModifierData modifier);
+            if (couldGetValue) return modifier;
+
+            Debug.LogError($"Unable to get modifier of enemy {enemy} in wave {name}");
+            return null;
+        }
     }
 }

@@ -49,7 +49,7 @@ namespace FckAI.UI.Towers
             TowerUpgradeUI.s_Instance.OnSelectButton();
         }
 
-        private void RefreshAvailability()
+        public void RefreshAvailability()
         {
             interactable = GameManager.s_Tokens >= m_upgradeCost;
         }

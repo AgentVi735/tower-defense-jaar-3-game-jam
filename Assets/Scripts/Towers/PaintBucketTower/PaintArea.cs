@@ -9,6 +9,7 @@ namespace FckAI.Towers.PaintBucket
     public class PaintArea : MonoBehaviour
     {
         [SerializeField] private BoxCollider m_boxCollider;
+        [SerializeField] private MeshRenderer m_meshRenderer;
         
         private float m_damage;
         private float m_maxTime;
@@ -36,11 +37,12 @@ namespace FckAI.Towers.PaintBucket
             m_colliders = new Collider[5];
         }
         
-        public void Show(Vector3 position, float damage)
+        public void Show(Vector3 position, float damage, Color splashColor)
         {
             transform.position = position;
             m_damage = damage;
             m_currentTime = m_maxTime;
+            m_meshRenderer.material.color = splashColor;
             gameObject.SetActive(true);
             StartCoroutine(HitLoop());
         }

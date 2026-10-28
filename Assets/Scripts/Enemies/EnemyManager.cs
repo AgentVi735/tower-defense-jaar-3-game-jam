@@ -70,20 +70,38 @@ namespace FckAI.Enemies
         {
             foreach (EnemyData enemyData in GameManager.s_Instance.m_GameData.m_EnemyOrder)
             {
-                if (!waveData.m_EnemyCount.ContainsKey(enemyData)) continue;
-                bool couldGetValue = waveData.m_EnemyCount.TryGetValue(enemyData, out int count);
-                if (!couldGetValue)
-                {
-                    Debug.LogError($"Unable to get enemy count of {enemyData.m_EnemyName}");
-                    continue;
-                }
+                
+                
+                
+            }
+            
+            foreach (EnemyData enemyData in GameManager.s_Instance.m_GameData.m_EnemyOrder)
+            {
+                EnemyModifierData modifier = waveData.GetEnemyModifier(enemyData);
+                bool hasModifier = modifier != null;
 
+                bool isInWave = waveData.m_EnemyCount.ContainsKey(enemyData);
+                int count = -1;
+                if (isInWave)
+                {
+                    bool couldGetValue = waveData.m_EnemyCount.TryGetValue(enemyData, out count);
+                    if (!couldGetValue)
+                    {
+                        Debug.LogError($"Unable to get enemy count of {enemyData.m_EnemyName}");
+                        continue;
+                    }
+                }
+                
                 bool couldGetEnemies = m_enemies.TryGetValue(enemyData, out EnemyController[] enemies);
                 if (!couldGetEnemies)
                 {
                     Debug.LogError($"Unable to get enemyControllers of {enemyData.m_EnemyName}");
                     continue;
                 }
+
+                if (hasModifier)
+                    foreach (EnemyController enemy in enemies)
+                        enemy.SetModifier(modifier);
 
                 if (enemies.Length < count)
                 {

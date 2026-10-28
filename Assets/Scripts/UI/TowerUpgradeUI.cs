@@ -97,5 +97,10 @@ namespace FckAI.UI.Towers
                 m_upgradeButton.MaxLevelReached();
             }
         }
+
+        public void RefreshAvailability()
+        {
+            m_upgradeButton.RefreshAvailability();
+        }
     }
 }

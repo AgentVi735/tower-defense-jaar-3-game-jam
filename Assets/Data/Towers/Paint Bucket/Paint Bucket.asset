@@ -32,5 +32,5 @@ MonoBehaviour:
   m_paintProjectilePrefab: {fileID: 6750103932198525106, guid: f3a1d868428621d4fa8bc3b906d5d938, type: 3}
   m_paintAreaPrefab: {fileID: 4575199694821467976, guid: a3482cbca3ecfd845a1f48a32fa15a2f, type: 3}
   m_maxPaintAreas: 3
-  m_paintAreaTime: 0.8
+  m_paintAreaTime: 1.3
   m_paintHitTick: 0.5

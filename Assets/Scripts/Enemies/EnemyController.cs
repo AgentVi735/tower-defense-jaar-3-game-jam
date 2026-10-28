@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.AI;
 
 namespace FckAI.Enemies
@@ -19,12 +20,29 @@ namespace FckAI.Enemies
         public float GetSpeed() => m_currentModifier != null ? m_currentModifier.m_NewSpeed : m_Data.m_Speed;
         public float GetHealth() => m_currentModifier != null ? m_currentModifier.m_NewHealth : m_Data.m_Health;
 
+        [SerializeField] private MeshRenderer m_meshRenderer;
+        
+        private Color m_defaultColor;
+        [SerializeField] private Color m_hitColor = Color.white;
+        [SerializeField] private float m_hitTime;
+        private WaitForSeconds m_waitHitTime;
+        private Coroutine m_hitCoroutine;
+
         public void Initialise(EnemyData data)
         {
             m_Data = data;
             gameObject.SetActive(false);
+            m_defaultColor = m_meshRenderer.material.color;
+            m_waitHitTime = new WaitForSeconds(m_hitTime);
         }
 
+        public void SetModifier(EnemyModifierData newModifier)
+        {
+            m_currentModifier = newModifier;
+            m_speed = GetSpeed();
+            m_health = GetHealth();
+        }
+        
         public void EnableEnemy()
         {
             m_CurrentWaypoint = EnemyManager.s_Instance.m_StartingPoint;
@@ -79,9 +97,28 @@ namespace FckAI.Enemies
 
         public void Damage(float damage)
         {
+            if (m_health <= 0)
+                return;
             m_health -= damage;
             if (m_health <= 0)
                 EnemyManager.s_Instance.DisableEnemy(this);
+            else
+                StartHitCoroutine();
+        }
+
+        private void StartHitCoroutine()
+        {
+            if (m_hitCoroutine != null)
+                StopCoroutine(m_hitCoroutine);
+            if (gameObject.activeInHierarchy)
+                m_hitCoroutine = StartCoroutine(HitCoroutine());
+        }
+        
+        private IEnumerator HitCoroutine()
+        {
+            m_meshRenderer.material.color = m_hitColor;
+            yield return m_waitHitTime;
+            m_meshRenderer.material.color = m_defaultColor;
         }
     }
 }

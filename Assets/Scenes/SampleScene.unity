@@ -485,6 +485,17 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!114 &593631763 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 897953700548255086, guid: 5cebf16b01ecafb46b24923d28a30cff, type: 3}
+  m_PrefabInstance: {fileID: 521142924567074061}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1465,22 +1476,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7191980160148789209, guid: 5cebf16b01ecafb46b24923d28a30cff, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7191980160148789209, guid: 5cebf16b01ecafb46b24923d28a30cff, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7191980160148789209, guid: 5cebf16b01ecafb46b24923d28a30cff, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7191980160148789209, guid: 5cebf16b01ecafb46b24923d28a30cff, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8024558692426402477, guid: 5cebf16b01ecafb46b24923d28a30cff, type: 3}
       propertyPath: m_Name
       value: Game Canvas
@@ -1559,6 +1554,10 @@ PrefabInstance:
       propertyPath: m_camera
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 363730435476069664, guid: 36caf0cf78d128a4fb4a5baa2ed223c9, type: 3}
+      propertyPath: m_tokensText
+      value: 
+      objectReference: {fileID: 593631763}
     - target: {fileID: 3099909354061052604, guid: 36caf0cf78d128a4fb4a5baa2ed223c9, type: 3}
       propertyPath: m_Name
       value: GameManager

@@ -66,9 +66,8 @@ namespace FckAI.UI.Towers
 
             m_currentSlot = slot;
             transform.position = position;
-            
-            foreach (TowerSelectButton button in m_buttons)
-                button.RefreshAvailability();
+
+            RefreshAvailability();
             
             gameObject.SetActive(true);
             m_deselectButton.SetActive(true);
@@ -96,6 +95,12 @@ namespace FckAI.UI.Towers
             m_currentSlot.PlaceTower(data);
             m_currentSlot = null;
             Hide();
+        }
+
+        public void RefreshAvailability()
+        {
+            foreach (TowerSelectButton button in m_buttons)
+                button.RefreshAvailability();
         }
     }
 }
