@@ -72,6 +72,7 @@ namespace FckAI.UI.Towers
             
             gameObject.SetActive(false);
             m_deselectButton.SetActive(false);
+            TowerCooldownUI.s_Instance.Hide();
             if (!m_currentTower) return;
             m_currentTower.OnDeselect();
             m_currentTower = null;

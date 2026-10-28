@@ -19,8 +19,6 @@ namespace FckAI.Towers.PaintBucket
 
         private Collider[] m_enemyCheckColl;
 
-        private bool m_hasCooldown;
-
         public override void Initialise(TowerData data, Vector3 uiOffset)
         {
             base.Initialise(data, uiOffset);
@@ -57,13 +55,6 @@ namespace FckAI.Towers.PaintBucket
         {
             m_projectile.Shoot(m_target);
             m_hasCooldown = true;
-        }
-
-        protected override IEnumerator StartCooldown()
-        {
-            m_hasCooldown = true;
-            yield return m_waitCurrentCooldown;
-            m_hasCooldown = false;
         }
 
         private PaintArea GetNewArea()

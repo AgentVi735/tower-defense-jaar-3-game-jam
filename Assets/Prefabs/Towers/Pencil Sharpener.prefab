@@ -225,6 +225,7 @@ MonoBehaviour:
   m_meshRenderer: {fileID: 5110489208266575870}
   m_rangeTransform: {fileID: 3645459633247128390}
   m_towerTransform: {fileID: 6387619601924037880}
+  m_cooldownUiOffset: {x: 0, y: 24.28, z: 0}
   m_defaultColor: {r: 1, g: 1, b: 1, a: 1}
   m_hoverColor: {r: 0.6117647, g: 0.6117647, b: 0.6117647, a: 1}
   m_hoverLerpTime: 0.3

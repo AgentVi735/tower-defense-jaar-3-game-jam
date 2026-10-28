@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5530072167534901434}
   - component: {fileID: 4143085006859248572}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Select Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,6 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.UI.Towers.TowerSelectUI
   m_buttonParent: {fileID: 8104229506090438075}
   m_buttonPrefab: {fileID: 628652139864879269, guid: 046b3c9ca6f661746a95b26662060a19, type: 3}
+  m_deselectButton: {fileID: 0}
 --- !u!114 &1364091756822254218
 MonoBehaviour:
   m_ObjectHideFlags: 0

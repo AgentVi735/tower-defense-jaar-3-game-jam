@@ -677,10 +677,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4435268301059557858, guid: 00d20915b89f2784d87482c94a364ad6, type: 3}
-      propertyPath: m_Name
-      value: Select Text
-      objectReference: {fileID: 0}
     - target: {fileID: 5861348554549246401, guid: 00d20915b89f2784d87482c94a364ad6, type: 3}
       propertyPath: m_deselectButton
       value: 
@@ -799,32 +795,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 4177950759884588315}
     m_Modifications:
     - target: {fileID: 1112249001244186813, guid: 850d3c99df8fce747906e8b7e7eeafed, type: 3}
-      propertyPath: m_upgradeButton
-      value: 
-      objectReference: {fileID: 5114944689460869928}
-    - target: {fileID: 1112249001244186813, guid: 850d3c99df8fce747906e8b7e7eeafed, type: 3}
       propertyPath: m_deselectButton
       value: 
       objectReference: {fileID: 4707021516902406616}
     - target: {fileID: 4458452343781367354, guid: 850d3c99df8fce747906e8b7e7eeafed, type: 3}
       propertyPath: m_Name
       value: Tower Upgrade UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 4685192114851522564, guid: 850d3c99df8fce747906e8b7e7eeafed, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4685192114851522564, guid: 850d3c99df8fce747906e8b7e7eeafed, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4685192114851522564, guid: 850d3c99df8fce747906e8b7e7eeafed, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4685192114851522564, guid: 850d3c99df8fce747906e8b7e7eeafed, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5039469825589729863, guid: 850d3c99df8fce747906e8b7e7eeafed, type: 3}
       propertyPath: m_AnchorMax.y
@@ -872,7 +848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5529108013485733151, guid: 850d3c99df8fce747906e8b7e7eeafed, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 296.13892
+      value: 368.2489
       objectReference: {fileID: 0}
     - target: {fileID: 5529108013485733151, guid: 850d3c99df8fce747906e8b7e7eeafed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -922,6 +898,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6345588374694001888, guid: 850d3c99df8fce747906e8b7e7eeafed, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345588374694001888, guid: 850d3c99df8fce747906e8b7e7eeafed, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345588374694001888, guid: 850d3c99df8fce747906e8b7e7eeafed, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345588374694001888, guid: 850d3c99df8fce747906e8b7e7eeafed, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9001426879775367037, guid: 850d3c99df8fce747906e8b7e7eeafed, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -940,7 +932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9001426879775367037, guid: 850d3c99df8fce747906e8b7e7eeafed, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -125.95
+      value: -187.00499
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -952,17 +944,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5529108013485733151, guid: 850d3c99df8fce747906e8b7e7eeafed, type: 3}
   m_PrefabInstance: {fileID: 8422582779041530964}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5114944689460869928 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3609891776653049724, guid: 850d3c99df8fce747906e8b7e7eeafed, type: 3}
-  m_PrefabInstance: {fileID: 8422582779041530964}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2de385911d614edbb979f9d270748b44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FckAI.UI.Towers.TowerUpgradeButton
 --- !u!114 &8902638977893702889 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1112249001244186813, guid: 850d3c99df8fce747906e8b7e7eeafed, type: 3}

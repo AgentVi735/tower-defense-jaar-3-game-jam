@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Linq;
+﻿using System.Linq;
 using FckAI.Core;
 using FckAI.Enemies;
 using UnityEngine;
@@ -17,8 +16,6 @@ namespace FckAI.Towers.PencilSharpener
         private EnemyController m_target;
 
         private Collider[] m_enemyCheckColl;
-
-        private bool m_hasCooldown;
 
         public override void Initialise(TowerData data, Vector3 uiOffset)
         {
@@ -49,7 +46,11 @@ namespace FckAI.Towers.PencilSharpener
 
         protected override void Attack()
         {
-            GetNewProjectile().Shoot(m_target);
+            PencilProjectile projectile = GetNewProjectile();
+            if (projectile == null)
+                return;
+            
+            projectile.Shoot(m_target);
             Vector3 lookPos = m_target.transform.position;
             lookPos.y = transform.position.y;
             m_TowerTransform.LookAt(lookPos);
@@ -58,18 +59,11 @@ namespace FckAI.Towers.PencilSharpener
 
         private PencilProjectile GetNewProjectile()
         {
-            PencilProjectile projectile = m_projectiles.FirstOrDefault(paintArea => !paintArea.gameObject.activeInHierarchy);
+            PencilProjectile projectile = m_projectiles.FirstOrDefault(projectile => !projectile.gameObject.activeInHierarchy);
 
             if (projectile != null) return projectile;
             Debug.LogWarning("Unable to pool a pencil projectile");
             return null;
-        }
-
-        protected override IEnumerator StartCooldown()
-        {
-            m_hasCooldown = true;
-            yield return m_waitCurrentCooldown;
-            m_hasCooldown = false;
         }
     }
 }

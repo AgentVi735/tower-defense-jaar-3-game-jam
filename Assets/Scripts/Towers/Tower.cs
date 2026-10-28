@@ -25,10 +25,11 @@ namespace FckAI.Towers
 
         private bool m_isHovering;
         private bool m_isSelected;
+        protected bool m_hasCooldown;
+        public float m_currentCooldownProgress { get; protected set; }
 
         public float m_currentDamage { get; private set; }
-        protected float m_currentCooldown { get; private set; }
-        protected WaitForSeconds m_waitCurrentCooldown { get; private set; }
+        public float m_currentCooldown { get; private set; }
         public float m_currentRange { get; private set; }
         public float m_currentProjectileSpeed { get; private set; }
 
@@ -37,7 +38,6 @@ namespace FckAI.Towers
             m_Data = data;
             m_currentDamage = m_Data.m_BaseDamage;
             m_currentCooldown = m_Data.m_BaseCooldown;
-            m_waitCurrentCooldown = new WaitForSeconds(m_currentCooldown);
             m_currentRange = m_Data.m_BaseRange;
             m_currentProjectileSpeed = m_Data.m_BaseProjectileSpeed;
             m_currentLevel = 1;
@@ -55,7 +55,6 @@ namespace FckAI.Towers
             m_currentLevel++;
             m_currentDamage = m_NextLevel.m_NewDamage;
             m_currentCooldown = m_NextLevel.m_NewCooldown;
-            m_waitCurrentCooldown = new WaitForSeconds(m_currentCooldown);
             m_currentRange = m_NextLevel.m_NewRange;
             m_currentProjectileSpeed = m_NextLevel.m_NewProjectileSpeed;
             m_NextLevel = m_NextLevel.m_NextLevel;
@@ -89,6 +88,8 @@ namespace FckAI.Towers
             Vector3 slotPos = m_uiOffset + transform.position;
             Vector2 uiPos = GameManager.s_Instance.m_Camera.WorldToScreenPoint(slotPos);
             TowerUpgradeUI.s_Instance.Show(uiPos, this);
+            
+            TowerCooldownUI.s_Instance.Show(this);
 
             m_rangeTransform.localScale = Vector3.one * (m_currentRange * 2);
             m_rangeTransform.gameObject.SetActive(true);
@@ -152,7 +153,24 @@ namespace FckAI.Towers
         }
 
         protected abstract void Attack();
-        protected abstract IEnumerator StartCooldown();
+
+        protected virtual IEnumerator StartCooldown()
+        {
+            m_hasCooldown = true;
+
+            m_currentCooldownProgress = 0;
+            if (m_isSelected)
+                TowerCooldownUI.s_Instance.Show(this);
+            
+            for (; m_currentCooldownProgress < m_currentCooldown; m_currentCooldownProgress += Time.deltaTime)
+            {
+                yield return null;
+            }
+
+            m_currentCooldownProgress = m_currentCooldown;
+            
+            m_hasCooldown = false;
+        }
 
         private void OnDrawGizmosSelected()
         {

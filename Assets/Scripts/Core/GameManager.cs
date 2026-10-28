@@ -35,6 +35,7 @@ namespace FckAI.Core
             FindAnyObjectByType<BaseManager>().Initialise();
             FindAnyObjectByType<TowerSelectUI>().Initialise();
             FindAnyObjectByType<TowerUpgradeUI>().Initialise();
+            FindAnyObjectByType<TowerCooldownUI>(FindObjectsInactive.Include).Initialise();
             FindAnyObjectByType<WaveManager>().Initialise();
             FindAnyObjectByType<EnemyManager>().Initialise();
             
