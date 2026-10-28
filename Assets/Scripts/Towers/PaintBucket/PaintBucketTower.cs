@@ -36,6 +36,9 @@ namespace FckAI.Towers.PaintBucket
             }
             m_shootTransform.gameObject.SetActive(false);
             m_enemyCheckColl = new Collider[5];
+            Vector3 rotation = Vector3.zero;
+            rotation.y = Random.Range(0, 359);
+            m_TowerTransform.rotation = Quaternion.Euler(rotation);
         }
 
         private void Update()

@@ -16,5 +16,5 @@ MonoBehaviour:
   m_extraStartTokens: 10
   m_enemyCount:
   - key: {fileID: 11400000, guid: bd15612871baeec46a257c74a32a445c, type: 2}
-    value: 5
+    value: 3
   m_enemyModifiers: []

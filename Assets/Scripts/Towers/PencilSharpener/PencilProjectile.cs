@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using FckAI.Enemies;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace FckAI.Towers.PencilSharpener
         private PencilSharpenerTower m_tower;
         
         private Vector3 m_startPosition;
+        private Vector3 m_targetPosition;
         private EnemyController m_target;
         
         private float m_speed;
@@ -36,25 +38,36 @@ namespace FckAI.Towers.PencilSharpener
         {
             transform.position = m_startPosition;
 
-            Vector3 currentTargetPos = m_target.transform.position;
-            float distance = Vector3.Distance(m_startPosition, m_target.transform.position);
+            m_targetPosition = m_target.transform.position;
+            float distance;
             for (float i = 0; i < m_speed; i += Time.deltaTime)
             {
-                if (m_target.gameObject.activeInHierarchy && distance <= m_tower.m_Data.m_BaseRange)
-                    currentTargetPos = m_target.transform.position;
+                distance = Vector3.Distance(m_startPosition, m_target.transform.position);
+                if (m_target.gameObject.activeInHierarchy && distance <= m_tower.m_currentRange)
+                    m_targetPosition = m_target.transform.position;
+
+                m_targetPosition.y = 0;
                 
-                Vector3 newPos = Vector3.Lerp(m_startPosition, currentTargetPos, i / m_speed);
-                newPos.y = 0;
+                Vector3 newPos = Vector3.Lerp(m_startPosition, m_targetPosition, i / m_speed);
                 transform.position = newPos;
 
-                transform.LookAt(currentTargetPos);
+                transform.LookAt(m_targetPosition);
                 
                 yield return null;
             }
 
-            if (m_target.gameObject.activeInHierarchy && distance <= m_tower.m_Data.m_BaseRange)
+            distance = Vector3.Distance(m_startPosition, m_target.transform.position);
+            if (m_target.gameObject.activeInHierarchy && distance <= m_tower.m_currentRange)
                 m_target.Damage(m_damage);
             gameObject.SetActive(false);
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.aquamarine;
+            Gizmos.DrawWireCube(m_targetPosition, new Vector3(0.5f,0.5f,0.5f));
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireCube(m_target.transform.position, new Vector3(0.5f,0.5f,0.5f));
         }
     }
 }

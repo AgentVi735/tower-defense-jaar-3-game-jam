@@ -15,7 +15,7 @@ MonoBehaviour:
   m_nextLevel: {fileID: 0}
   m_description: biiiig ahh upgrade
   m_cost: 10
-  m_newDamage: 4
+  m_newDamage: 5
   m_newCooldown: 1.05
-  m_newRange: 6.4
+  m_newRange: 7.4
   m_newProjectileSpeed: 0.37

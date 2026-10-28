@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Pencil Sharpener
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Towers.PencilSharpener.PencilSharpenerData
   m_towerName: Pencil Sharpener
-  m_nextLevel: {fileID: 11400000, guid: de21d2a166cb4b246a16a801c14e590f, type: 2}
+  m_nextLevel: {fileID: 11400000, guid: ac4cb46a58d70b64abe5974d143f467b, type: 2}
   m_baseCost: 10
-  m_baseDamage: 3
+  m_baseDamage: 4
   m_baseCooldown: 1.2
-  m_baseRange: 6
+  m_baseRange: 7
   m_baseProjectileSpeed: 0.5
   m_prefab: {fileID: 2929692736076873622, guid: f65e47e6170471f4eb4efafe41957701, type: 3}
   m_pencilProjectilePrefab: {fileID: 8113700586041239700, guid: b28651938818fd2439b892a0cb9f5cf1, type: 3}

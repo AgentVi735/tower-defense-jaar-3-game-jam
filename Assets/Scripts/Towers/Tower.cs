@@ -1,6 +1,5 @@
 using System.Collections;
 using FckAI.Core;
-using FckAI.Enemies;
 using FckAI.UI.Towers;
 using UnityEngine;
 
@@ -13,6 +12,8 @@ namespace FckAI.Towers
         public TowerLevel m_NextLevel { get; private set; }
         [SerializeField] private MeshRenderer m_meshRenderer;
         [SerializeField] private Transform m_rangeTransform;
+        [SerializeField] private Transform m_towerTransform;
+        public Transform m_TowerTransform => m_towerTransform;
 
         private Vector3 m_uiOffset;
 
@@ -28,7 +29,7 @@ namespace FckAI.Towers
         public float m_currentDamage { get; private set; }
         protected float m_currentCooldown { get; private set; }
         protected WaitForSeconds m_waitCurrentCooldown { get; private set; }
-        protected float m_currentRange { get; private set; }
+        public float m_currentRange { get; private set; }
         public float m_currentProjectileSpeed { get; private set; }
 
         public virtual void Initialise(TowerData data, Vector3 uiOffset)

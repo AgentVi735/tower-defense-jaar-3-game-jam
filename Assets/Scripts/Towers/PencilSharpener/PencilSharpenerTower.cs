@@ -50,6 +50,9 @@ namespace FckAI.Towers.PencilSharpener
         protected override void Attack()
         {
             GetNewProjectile().Shoot(m_target);
+            Vector3 lookPos = m_target.transform.position;
+            lookPos.y = transform.position.y;
+            m_TowerTransform.LookAt(lookPos);
             StartCoroutine(StartCooldown());
         }
 

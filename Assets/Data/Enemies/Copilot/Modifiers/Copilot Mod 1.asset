@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Enemies.EnemyModifierData
   m_targetEnemy: {fileID: 11400000, guid: bd15612871baeec46a257c74a32a445c, type: 2}
   m_newDamage: 1
-  m_newHealth: 4
-  m_newSpeed: 5.1
+  m_newHealth: 3
+  m_newSpeed: 4.3
