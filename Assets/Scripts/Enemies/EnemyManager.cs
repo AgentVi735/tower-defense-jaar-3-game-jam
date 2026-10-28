@@ -28,6 +28,12 @@ namespace FckAI.Enemies
             Destroy(gameObject);
         }
 
+        private void OnDestroy()
+        {
+            if (s_Instance == this)
+                s_Instance = null;
+        }
+
         public void Initialise()
         {
             if (s_Instance != null)
@@ -130,11 +136,13 @@ namespace FckAI.Enemies
             }
         }
         
-        public void DisableEnemy(EnemyController controller)
+        public void DisableEnemy(EnemyController controller, bool shouldDoDamage)
         {
             controller.gameObject.SetActive(false);
             m_ActiveEnemies.Remove(controller);
             GameManager.AddTokens(controller.m_Data.m_Reward);
+            if (shouldDoDamage)
+                BaseManager.s_Instance.AddHealth(-controller.m_Data.m_Damage);
             
             if (m_ActiveEnemies.Count == 0)
                 WaveManager.s_Instance.EndWave();

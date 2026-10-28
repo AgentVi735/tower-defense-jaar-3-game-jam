@@ -25,6 +25,12 @@ namespace FckAI.UI.Towers
             Destroy(gameObject);
         }
 
+        private void OnDestroy()
+        {
+            if (s_Instance == this)
+                s_Instance = null;
+        }
+
         public void Initialise()
         {
             if (s_Instance != null)
@@ -51,12 +57,6 @@ namespace FckAI.UI.Towers
                 button.Initialise(towers[i]);
                 m_buttons[i] = button;
             }
-        }
-
-        private void OnDestroy()
-        {
-            if (s_Instance == this)
-                s_Instance = null;
         }
 
         public void Show(Vector3 position, TowerSlot slot)

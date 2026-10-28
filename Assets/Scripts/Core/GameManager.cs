@@ -32,12 +32,19 @@ namespace FckAI.Core
 
             s_Instance = this;
             s_Tokens = 0;
+            FindAnyObjectByType<BaseManager>().Initialise();
             FindAnyObjectByType<TowerSelectUI>().Initialise();
             FindAnyObjectByType<TowerUpgradeUI>().Initialise();
             FindAnyObjectByType<WaveManager>().Initialise();
             FindAnyObjectByType<EnemyManager>().Initialise();
             
             WaveManager.s_Instance.StartWave();
+        }
+
+        private void OnDestroy()
+        {
+            if (s_Instance == this)
+                s_Instance = null;
         }
 
         public static void AddTokens(int amount)

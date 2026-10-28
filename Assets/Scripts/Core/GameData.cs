@@ -12,6 +12,8 @@ namespace FckAI.Core
         public TowerData[] m_Towers => m_towers;
         [SerializeField] private WaveData m_startWave;
         public WaveData m_StartWave => m_startWave;
+        [SerializeField] private int m_startHealth;
+        public int m_StartHealth => m_startHealth;
         [SerializeField] private EnemyData[] m_enemyOrder;
         public EnemyData[] m_EnemyOrder => m_enemyOrder;
         [SerializeField] private LayerMask m_enemyLayer;

@@ -50,17 +50,22 @@ namespace FckAI.Enemies
             m_speed = GetSpeed();
             m_health = GetHealth();
             gameObject.SetActive(true);
-            GetNewPath();
+            CalculatePath();
         }
 
         private void GetNewPath()
         {
             if (m_CurrentWaypoint.m_NextWaypoint == null)
             {
-                EnemyManager.s_Instance.DisableEnemy(this);
+                EnemyManager.s_Instance.DisableEnemy(this, true);
                 return;
             }
             m_CurrentWaypoint = m_CurrentWaypoint.m_NextWaypoint;
+            CalculatePath();
+        }
+
+        private void CalculatePath()
+        {
             bool couldHit = NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 3, 1);
             if (!couldHit)
             {
@@ -101,7 +106,7 @@ namespace FckAI.Enemies
                 return;
             m_health -= damage;
             if (m_health <= 0)
-                EnemyManager.s_Instance.DisableEnemy(this);
+                EnemyManager.s_Instance.DisableEnemy(this, false);
             else
                 StartHitCoroutine();
         }

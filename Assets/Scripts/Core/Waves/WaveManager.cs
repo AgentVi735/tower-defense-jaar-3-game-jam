@@ -18,6 +18,12 @@ namespace FckAI.Core.Waves
             Destroy(gameObject);
         }
 
+        private void OnDestroy()
+        {
+            if (s_Instance == this)
+                s_Instance = null;
+        }
+
         public void Initialise()
         {
             if (s_Instance != null)
