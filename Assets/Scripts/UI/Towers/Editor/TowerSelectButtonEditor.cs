@@ -2,26 +2,26 @@
 using UnityEditor.UI;
 using UnityEngine;
 
-namespace FckAI.UI.Towers
+namespace FckAI.UI.Towers.Editor
 {
     [CustomEditor(typeof(TowerSelectButton), true)]
     [CanEditMultipleObjects]
     public class TowerSelectButtonEditor : ButtonEditor
     {
-        private SerializedProperty textProp;
+        private SerializedProperty m_text;
 
         protected override void OnEnable()
         {
             base.OnEnable();
-            textProp = serializedObject.FindProperty("m_text");
+            m_text = serializedObject.FindProperty("m_text");
         }
 
         public override void OnInspectorGUI()
         {
             serializedObject.Update();
 
-            if (textProp != null)
-                EditorGUILayout.PropertyField(textProp, new GUIContent("Text"));
+            if (m_text != null)
+                EditorGUILayout.PropertyField(m_text);
         
             EditorGUILayout.Space();
         

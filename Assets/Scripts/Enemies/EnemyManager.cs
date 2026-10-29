@@ -21,6 +21,8 @@ namespace FckAI.Enemies
         [SerializeField] private float m_spawnDelay;
         private WaitForSeconds m_waitSpawnDelay;
 
+        private bool m_hasSpawnedAllEnemies;
+
         private void Awake()
         {
             if (s_Instance == null) return;
@@ -74,13 +76,7 @@ namespace FckAI.Enemies
 
         public IEnumerator SpawnNewWave(WaveData waveData)
         {
-            foreach (EnemyData enemyData in GameManager.s_Instance.m_GameData.m_EnemyOrder)
-            {
-                
-                
-                
-            }
-            
+            m_hasSpawnedAllEnemies = false;
             foreach (EnemyData enemyData in GameManager.s_Instance.m_GameData.m_EnemyOrder)
             {
                 EnemyModifierData modifier = waveData.GetEnemyModifier(enemyData);
@@ -123,6 +119,11 @@ namespace FckAI.Enemies
                     yield return m_waitSpawnDelay;
                 }
             }
+
+            m_hasSpawnedAllEnemies = true;
+            
+            if (m_ActiveEnemies.Count == 0)
+                WaveManager.s_Instance.EndWave();
         }
 
         private void Update()
@@ -145,7 +146,7 @@ namespace FckAI.Enemies
             else
                 GameManager.AddTokens(controller.m_Data.m_Reward);
             
-            if (m_ActiveEnemies.Count == 0)
+            if (m_hasSpawnedAllEnemies && m_ActiveEnemies.Count == 0)
                 WaveManager.s_Instance.EndWave();
         }
     }

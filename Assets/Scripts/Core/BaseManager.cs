@@ -11,7 +11,7 @@ namespace FckAI.Core
 
         public int m_health { get; private set; }
         [SerializeField] private TMP_Text m_healthText;
-
+        
         private void Awake()
         {
             if (s_Instance == null) return;
