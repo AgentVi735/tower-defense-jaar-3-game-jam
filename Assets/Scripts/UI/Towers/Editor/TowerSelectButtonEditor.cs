@@ -10,12 +10,14 @@ namespace FckAI.UI.Towers.Editor
     {
         private SerializedProperty m_text;
         private SerializedProperty m_priceText;
+        private SerializedProperty m_image;
 
         protected override void OnEnable()
         {
             base.OnEnable();
             m_text = serializedObject.FindProperty("m_text");
             m_priceText = serializedObject.FindProperty("m_priceText");
+            m_image = serializedObject.FindProperty("m_image");
         }
 
         public override void OnInspectorGUI()
@@ -26,6 +28,8 @@ namespace FckAI.UI.Towers.Editor
                 EditorGUILayout.PropertyField(m_text);
             if (m_priceText != null)
                 EditorGUILayout.PropertyField(m_priceText);
+            if (m_image != null)
+                EditorGUILayout.PropertyField(m_image);
         
             EditorGUILayout.Space();
         

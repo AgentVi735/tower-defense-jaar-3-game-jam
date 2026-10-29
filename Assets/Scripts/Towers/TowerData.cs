@@ -20,6 +20,8 @@ namespace FckAI.Towers
         public float m_BaseProjectileSpeed => m_baseProjectileSpeed;
         [SerializeField] private Tower m_prefab;
         public Tower m_Prefab => m_prefab;
+        [SerializeField] private Sprite m_uiSprite;
+        public Sprite m_UiSprite => m_uiSprite;
 
         private void Reset()
         {

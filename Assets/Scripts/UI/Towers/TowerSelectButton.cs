@@ -13,12 +13,14 @@ namespace FckAI.UI.Towers
         
         [SerializeField] private TMP_Text m_text;
         [SerializeField] private TMP_Text m_priceText;
+        [SerializeField] private Image m_image;
         
         public void Initialise(TowerData data)
         {
             m_TowerData = data;
             m_text.text = data.m_TowerName;
             m_priceText.text = $"{data.m_BaseCost} Tokens";
+            m_image.sprite = data.m_UiSprite;
         }
         
         public override void OnPointerClick(PointerEventData eventData)
