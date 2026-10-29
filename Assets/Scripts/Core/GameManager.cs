@@ -61,7 +61,7 @@ namespace FckAI.Core
             FindAnyObjectByType<WaveManager>().Initialise();
             FindAnyObjectByType<EnemyManager>().Initialise();
 
-            StartCoroutine(FadeMainMenu());
+            StartCoroutine(FadeMainMenu(false));
         }
 
         private void OnDestroy()
@@ -71,22 +71,29 @@ namespace FckAI.Core
             s_Tokens = 0;
         }
 
-        private IEnumerator FadeMainMenu()
+        private IEnumerator FadeMainMenu(bool toggle)
         {
-            m_mainMenuCanvasGroup.alpha = 1;
+            float startAlpha = toggle ? 0 : 1;
+            float endAlpha = toggle ? 1 : 0;
+            m_mainMenuCanvasGroup.alpha = startAlpha;
+            m_mainMenuCanvasGroup.gameObject.SetActive(!toggle);
 
             for (float i = 0; i < m_canvasGroupFadeTime; i += Time.deltaTime)
             {
-                m_mainMenuCanvasGroup.alpha = Mathf.Lerp(1, 0, i / m_canvasGroupFadeTime);
+                m_mainMenuCanvasGroup.alpha = Mathf.Lerp(startAlpha, endAlpha, i / m_canvasGroupFadeTime);
                 yield return null;
             }
             
-            m_mainMenuCanvasGroup.alpha = 0;
-            m_mainMenuCanvasGroup.gameObject.SetActive(false);
-
-            yield return m_waitTimeBeforeStart;
+            m_mainMenuCanvasGroup.alpha = toggle ? 1 : 0;
+            m_mainMenuCanvasGroup.gameObject.SetActive(toggle);
             
-            StartGame();
+            if (toggle)
+                GoToMainMenu();
+            else
+            {
+                yield return m_waitTimeBeforeStart;
+                StartGame();
+            }
         }
 
         private static void StartGame()
@@ -95,6 +102,11 @@ namespace FckAI.Core
         }
 
         public void StopGame()
+        {
+            StartCoroutine(FadeMainMenu(true));
+        }
+
+        private void GoToMainMenu()
         {
             SceneManager.LoadScene(m_mainMenuSceneName);
         }
