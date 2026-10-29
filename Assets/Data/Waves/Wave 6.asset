@@ -19,4 +19,6 @@ MonoBehaviour:
     value: 10
   - key: {fileID: 11400000, guid: 429b37172606acf4abc54e60211b7bc0, type: 2}
     value: 10
-  m_enemyModifiers: []
+  m_enemyModifiers:
+  - key: {fileID: 11400000, guid: 429b37172606acf4abc54e60211b7bc0, type: 2}
+    value: {fileID: 11400000, guid: d74766028a4fe3545afc09e80763a1b1, type: 2}
