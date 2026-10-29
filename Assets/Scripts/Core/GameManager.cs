@@ -76,8 +76,8 @@ namespace FckAI.Core
             float startAlpha = toggle ? 0 : 1;
             float endAlpha = toggle ? 1 : 0;
             m_mainMenuCanvasGroup.alpha = startAlpha;
-            m_mainMenuCanvasGroup.gameObject.SetActive(!toggle);
-
+            m_mainMenuCanvasGroup.gameObject.SetActive(true);
+            
             for (float i = 0; i < m_canvasGroupFadeTime; i += Time.deltaTime)
             {
                 m_mainMenuCanvasGroup.alpha = Mathf.Lerp(startAlpha, endAlpha, i / m_canvasGroupFadeTime);
