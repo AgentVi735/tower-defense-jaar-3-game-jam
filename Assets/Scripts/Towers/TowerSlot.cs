@@ -1,6 +1,7 @@
 ﻿using FckAI.Core;
 using FckAI.UI.Towers;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace FckAI.Towers
 {
@@ -40,6 +41,9 @@ namespace FckAI.Towers
         {
             if (!m_isHovering || m_isSelected) return;
             if (m_hasTower) return;
+            
+            if (TowerSelectUI.s_Instance.m_IsActive || TowerUpgradeUI.s_Instance.m_IsActive)
+                return;
 
             m_isSelected = true;
             Vector3 slotPos = m_uiOffset + transform.position;

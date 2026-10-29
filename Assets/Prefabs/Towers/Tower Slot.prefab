@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerSlot
   m_slotRenderer: {fileID: 1542331422837957372}
-  m_uiOffset: {x: 13, y: 0, z: 0}
+  m_uiOffset: {x: 7, y: 0, z: 0}
   m_spawnTransform: {fileID: 179404088026133252}
   m_boxCollider: {fileID: 6716437070794258086}
 --- !u!65 &6716437070794258086

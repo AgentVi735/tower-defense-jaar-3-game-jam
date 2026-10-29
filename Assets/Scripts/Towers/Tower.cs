@@ -11,9 +11,11 @@ namespace FckAI.Towers
         private int m_currentLevel;
         public TowerLevel m_NextLevel { get; private set; }
         [SerializeField] private MeshRenderer m_meshRenderer;
-        [SerializeField] private Transform m_rangeTransform;
         [SerializeField] private Transform m_towerTransform;
         public Transform m_TowerTransform => m_towerTransform;
+        [SerializeField] private Transform m_rangeTransform;
+        [SerializeField] private SpriteRenderer m_rangeRenderer;
+        private float m_rangeAlpha;
 
         private Vector3 m_uiOffset;
 
@@ -43,6 +45,10 @@ namespace FckAI.Towers
             m_currentLevel = 1;
             m_NextLevel = m_Data.m_NextLevel;
             m_uiOffset = uiOffset;
+            Color rangeColor = m_rangeRenderer.color;
+            m_rangeAlpha = rangeColor.a;
+            rangeColor.a = 0;
+            m_rangeRenderer.color = rangeColor;
         }
         
         public virtual void Upgrade()
@@ -56,6 +62,7 @@ namespace FckAI.Towers
             m_currentDamage = m_NextLevel.m_NewDamage;
             m_currentCooldown = m_NextLevel.m_NewCooldown;
             m_currentRange = m_NextLevel.m_NewRange;
+            m_rangeTransform.localScale = Vector3.one * (m_currentRange * 2);
             m_currentProjectileSpeed = m_NextLevel.m_NewProjectileSpeed;
             m_NextLevel = m_NextLevel.m_NextLevel;
         }
@@ -75,7 +82,6 @@ namespace FckAI.Towers
         public void OnDeselect()
         {
             m_isSelected = false;
-            m_rangeTransform.gameObject.SetActive(false);
             if (!m_isHovering)
                 ToggleHover(false);
         }
@@ -84,15 +90,16 @@ namespace FckAI.Towers
         {
             if (!m_isHovering || m_isSelected) return;
 
+            if (TowerSelectUI.s_Instance.m_IsActive || TowerUpgradeUI.s_Instance.m_IsActive)
+                return;
+
             m_isSelected = true;
             Vector3 slotPos = m_uiOffset + transform.position;
             Vector2 uiPos = GameManager.s_Instance.m_Camera.WorldToScreenPoint(slotPos);
             TowerUpgradeUI.s_Instance.Show(uiPos, this);
-            
-            TowerCooldownUI.s_Instance.Show(this);
 
-            m_rangeTransform.localScale = Vector3.one * (m_currentRange * 2);
-            m_rangeTransform.gameObject.SetActive(true);
+            if (m_currentCooldownProgress > 0)
+                TowerCooldownUI.s_Instance.Show(this);
         }
         
         private void ToggleHover(bool toggle)
@@ -107,6 +114,8 @@ namespace FckAI.Towers
             if (m_hoverIndex > 0)
                 m_hoverIndex = m_hoverLerpTime - m_hoverIndex;
             
+            UpdateRangeDisplay();
+            
             m_hoverLerpCoroutine = StartCoroutine(m_meshRenderer.materials.Length < 2
                 ? HoverColorCoroutine(toggle)
                 : HoverColorsCoroutine(toggle));
@@ -116,33 +125,52 @@ namespace FckAI.Towers
         {
             Color startColor = m_meshRenderer.material.color;
             Color endColor = toggle ? m_hoverColor : m_defaultColor;
-            
-            m_meshRenderer.material.color = startColor;
+            Color rangeColor = m_rangeRenderer.color;
+            float rangeStartAlpha = rangeColor.a;
+            float rangeEndAlpha = toggle ? m_rangeAlpha : 0;
+
+            m_rangeRenderer.color = rangeColor;
+            m_rangeTransform.gameObject.SetActive(true);
 
             for (; m_hoverIndex < m_hoverLerpTime; m_hoverIndex += Time.deltaTime)
             {
-                m_meshRenderer.material.color = Color.Lerp(startColor, endColor, m_hoverIndex / m_hoverLerpTime);
+                float ratio = m_hoverIndex / m_hoverLerpTime;
+                m_meshRenderer.material.color = Color.Lerp(startColor, endColor, ratio);
+                rangeColor.a = Mathf.Lerp(rangeStartAlpha, rangeEndAlpha, ratio);
+                m_rangeRenderer.color = rangeColor;
                 yield return null;
             }
 
             m_hoverIndex = 0;
             
             m_meshRenderer.material.color = endColor;
+            
+            if (!toggle)
+                m_rangeTransform.gameObject.SetActive(false);
         }
         
         private IEnumerator HoverColorsCoroutine(bool toggle)
         {
             Color startColor = m_meshRenderer.material.color;
             Color endColor = toggle ? m_hoverColor : m_defaultColor;
+            Color rangeColor = m_rangeRenderer.color;
+            float rangeStartAlpha = rangeColor.a;
+            float rangeEndAlpha = toggle ? m_rangeAlpha : 0;
+
+            m_rangeRenderer.color = rangeColor;
+            m_rangeTransform.gameObject.SetActive(true);
             
             foreach (Material material in m_meshRenderer.materials)
                 material.color = startColor;
 
             for (; m_hoverIndex < m_hoverLerpTime; m_hoverIndex += Time.deltaTime)
             {
-                Color newColor = Color.Lerp(startColor, endColor, m_hoverIndex / m_hoverLerpTime);
+                float ratio = m_hoverIndex / m_hoverLerpTime;
+                Color newColor = Color.Lerp(startColor, endColor, ratio);
                 foreach (Material material in m_meshRenderer.materials)
                     material.color = newColor;
+                rangeColor.a = Mathf.Lerp(rangeStartAlpha, rangeEndAlpha, ratio);
+                m_rangeRenderer.color = rangeColor;
                 yield return null;
             }
 
@@ -150,6 +178,9 @@ namespace FckAI.Towers
 
             foreach (Material material in m_meshRenderer.materials)
                 material.color = endColor;
+            
+            if (!toggle)
+                m_rangeTransform.gameObject.SetActive(false);
         }
 
         protected abstract void Attack();
@@ -170,6 +201,11 @@ namespace FckAI.Towers
             m_currentCooldownProgress = m_currentCooldown;
             
             m_hasCooldown = false;
+        }
+
+        private void UpdateRangeDisplay()
+        {
+            m_rangeTransform.localScale = Vector3.one * (m_currentRange * 2);
         }
 
         private void OnDrawGizmosSelected()

@@ -113,7 +113,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 0e04584de25ed614a8240360c18ae923, type: 3}
-  m_Color: {r: 1, g: 0.40677965, b: 0, a: 0.5058824}
+  m_Color: {r: 1, g: 0.40677965, b: 0, a: 0.7294118}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -223,8 +223,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Towers.PaintBucketTower
   m_meshRenderer: {fileID: 1292094386953459619}
-  m_rangeTransform: {fileID: 2900209047894258959}
   m_towerTransform: {fileID: 118602272379563212}
+  m_rangeTransform: {fileID: 2900209047894258959}
+  m_rangeRenderer: {fileID: 832096745416781717}
   m_defaultColor: {r: 1, g: 1, b: 1, a: 1}
   m_hoverColor: {r: 0.6132076, g: 0.6132076, b: 0.6132076, a: 1}
   m_hoverLerpTime: 0.3

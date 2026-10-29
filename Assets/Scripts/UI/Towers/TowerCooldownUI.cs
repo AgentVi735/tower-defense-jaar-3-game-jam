@@ -42,6 +42,7 @@ namespace FckAI.UI.Towers
 
             s_Instance = this;
             gameObject.SetActive(false);
+            m_cooldownFillImage.fillAmount = 0;
         }
 
         public void Show(Tower tower)
@@ -69,9 +70,6 @@ namespace FckAI.UI.Towers
                 return;
             
             gameObject.SetActive(false);
-            if (!m_currentTower) return;
-            m_currentTower.OnDeselect();
-            m_currentTower = null;
         }
 
         private void UpdateDisplay()

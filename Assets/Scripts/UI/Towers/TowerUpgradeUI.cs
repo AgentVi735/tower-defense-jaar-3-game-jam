@@ -101,7 +101,8 @@ namespace FckAI.UI.Towers
 
         public void RefreshAvailability()
         {
-            m_upgradeButton.RefreshAvailability();
+            if (m_currentTower.m_NextLevel != null)
+                m_upgradeButton.RefreshAvailability();
         }
     }
 }
