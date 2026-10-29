@@ -1,7 +1,6 @@
 ﻿using FckAI.Core;
 using FckAI.UI.Towers;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace FckAI.Towers
 {

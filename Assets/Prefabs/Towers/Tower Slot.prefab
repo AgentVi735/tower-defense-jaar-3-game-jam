@@ -186,7 +186,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -6531619312549583140, guid: cefdc87df2d94924e803d6f211317fb2, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.45555043, g: 0.21173012, b: 0.735849, a: 0.74509805}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -209,6 +209,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerSlotRenderer
   m_spriteRenderer: {fileID: 4485894600649348896}
-  m_defaultColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0.5803922}
-  m_hoverColor: {r: 1, g: 1, b: 1, a: 0.5529412}
+  m_hoverColor: {r: 0.65022874, g: 0.48713955, b: 0.8396226, a: 1}
   m_hoverLerpTime: 0.5

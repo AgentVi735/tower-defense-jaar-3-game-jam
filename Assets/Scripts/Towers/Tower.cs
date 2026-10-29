@@ -131,7 +131,10 @@ namespace FckAI.Towers
 
             m_rangeRenderer.color = rangeColor;
             m_rangeTransform.gameObject.SetActive(true);
-
+            
+            if (m_hoverIndex > 0)
+                m_hoverIndex = m_hoverLerpTime - m_hoverIndex;
+            
             for (; m_hoverIndex < m_hoverLerpTime; m_hoverIndex += Time.deltaTime)
             {
                 float ratio = m_hoverIndex / m_hoverLerpTime;
@@ -162,6 +165,9 @@ namespace FckAI.Towers
             
             foreach (Material material in m_meshRenderer.materials)
                 material.color = startColor;
+            
+            if (m_hoverIndex > 0)
+                m_hoverIndex = m_hoverLerpTime - m_hoverIndex;
 
             for (; m_hoverIndex < m_hoverLerpTime; m_hoverIndex += Time.deltaTime)
             {
