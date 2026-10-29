@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Paint Bucket
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Towers.PaintBucketData
   m_towerName: Paint Bucket
-  m_nextLevel: {fileID: 0}
+  m_nextLevel: {fileID: 11400000, guid: 3420b58eccc3c1a489184971359b2b2e, type: 2}
   m_baseCost: 25
   m_baseDamage: 5
   m_baseCooldown: 3
@@ -33,5 +33,4 @@ MonoBehaviour:
   m_paintProjectilePrefab: {fileID: 6750103932198525106, guid: f3a1d868428621d4fa8bc3b906d5d938, type: 3}
   m_paintAreaPrefab: {fileID: 6906277984337779325, guid: 29545dc35c87ba844b63d6c79c67f10b, type: 3}
   m_maxPaintAreas: 3
-  m_paintAreaTime: 1.2
-  m_paintHitTick: 0.5
+  m_paintAreaTime: 1

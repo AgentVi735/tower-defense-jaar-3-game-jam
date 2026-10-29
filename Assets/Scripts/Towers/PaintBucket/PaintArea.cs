@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using FckAI.Core;
+﻿using FckAI.Core;
 using FckAI.Enemies;
 using UnityEngine;
 
@@ -14,7 +12,6 @@ namespace FckAI.Towers.PaintBucket
         private float m_damage;
         private float m_maxTime;
         private float m_currentTime;
-        private WaitForSeconds m_waitTick;
 
         private Collider[] m_colliders;
 
@@ -22,7 +19,7 @@ namespace FckAI.Towers.PaintBucket
 
         private bool m_isActive;
 
-        public void Initialise(float maxTime, float tickTime)
+        public void Initialise(float maxTime)
         {
             gameObject.SetActive(false);
 
@@ -32,7 +29,6 @@ namespace FckAI.Towers.PaintBucket
 
             m_size = new Vector3(sizeX, sizeY, sizeZ);
             m_maxTime = maxTime;
-            m_waitTick = new WaitForSeconds(tickTime);
 
             m_colliders = new Collider[5];
         }
@@ -44,7 +40,8 @@ namespace FckAI.Towers.PaintBucket
             m_currentTime = m_maxTime;
             m_meshRenderer.material.color = splashColor;
             gameObject.SetActive(true);
-            StartCoroutine(HitLoop());
+            m_isActive = true;
+            CheckForHit();
         }
         
         private void Update()
@@ -54,17 +51,6 @@ namespace FckAI.Towers.PaintBucket
             if (!(m_currentTime <= 0)) return;
             m_isActive = false;
             gameObject.SetActive(false);
-        }
-
-        private IEnumerator HitLoop()
-        {
-            m_isActive = true;
-            while (m_isActive)
-            {
-                CheckForHit();
-                
-                yield return m_waitTick;
-            }
         }
 
         private void CheckForHit()
@@ -81,11 +67,6 @@ namespace FckAI.Towers.PaintBucket
                 EnemyController enemy = collider.GetComponent<EnemyController>();
                 enemy.Damage(m_damage);
             }
-        }
-
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.DrawWireCube(transform.position + m_boxCollider.center, m_size);
         }
     }
 }

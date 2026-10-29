@@ -7,7 +7,7 @@ namespace FckAI.Towers.PencilSharpener
 {
     public class PencilSharpenerTower : Tower
     {
-        public new PencilSharpenerData m_Data { get; private set; }
+        private new PencilSharpenerData m_Data { get; set; }
 
         [SerializeField] private Transform m_shootTransform;
 
@@ -44,7 +44,7 @@ namespace FckAI.Towers.PencilSharpener
             Attack();
         }
 
-        protected override void Attack()
+        private void Attack()
         {
             PencilProjectile projectile = GetNewProjectile();
             if (projectile == null)

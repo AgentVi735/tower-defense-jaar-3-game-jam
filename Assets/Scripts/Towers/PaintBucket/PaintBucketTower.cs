@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Linq;
+﻿using System.Linq;
 using FckAI.Core;
 using FckAI.Enemies;
 using UnityEngine;
@@ -29,7 +28,7 @@ namespace FckAI.Towers.PaintBucket
             for (int i = 0; i < m_Data.m_MaxPaintAreas; i++)
             {
                 PaintArea area = Instantiate(m_Data.m_PaintAreaPrefab, transform);
-                area.Initialise(m_Data.m_PaintAreaTime, m_Data.m_PaintHitTick);
+                area.Initialise(m_Data.m_PaintAreaTime);
                 m_areas[i] = area;
             }
             m_shootTransform.gameObject.SetActive(false);
@@ -51,10 +50,10 @@ namespace FckAI.Towers.PaintBucket
             Attack();
         }
 
-        protected override void Attack()
+        private void Attack()
         {
             m_projectile.Shoot(m_target);
-            m_hasCooldown = true;
+            StartCoroutine(StartCooldown());
         }
 
         private PaintArea GetNewArea()
@@ -68,8 +67,6 @@ namespace FckAI.Towers.PaintBucket
         
         public void ShowNewArea(Vector3 position, Color splashColor)
         {
-            StartCoroutine(StartCooldown());
-
             PaintArea area = GetNewArea();
 
             if (area == null)

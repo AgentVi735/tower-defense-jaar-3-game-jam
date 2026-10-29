@@ -8,11 +8,10 @@ namespace FckAI.Towers
     public abstract class Tower : MonoBehaviour
     {
         public TowerData m_Data { get; private set; }
-        private int m_currentLevel;
         public TowerLevel m_NextLevel { get; private set; }
         [SerializeField] private MeshRenderer m_meshRenderer;
         [SerializeField] private Transform m_towerTransform;
-        public Transform m_TowerTransform => m_towerTransform;
+        protected Transform m_TowerTransform => m_towerTransform;
         [SerializeField] private Transform m_rangeTransform;
         [SerializeField] private SpriteRenderer m_rangeRenderer;
         private float m_rangeAlpha;
@@ -28,7 +27,7 @@ namespace FckAI.Towers
         private bool m_isHovering;
         private bool m_isSelected;
         protected bool m_hasCooldown;
-        public float m_currentCooldownProgress { get; protected set; }
+        public float m_currentCooldownProgress { get; private set; }
 
         public float m_currentDamage { get; private set; }
         public float m_currentCooldown { get; private set; }
@@ -42,7 +41,6 @@ namespace FckAI.Towers
             m_currentCooldown = m_Data.m_BaseCooldown;
             m_currentRange = m_Data.m_BaseRange;
             m_currentProjectileSpeed = m_Data.m_BaseProjectileSpeed;
-            m_currentLevel = 1;
             m_NextLevel = m_Data.m_NextLevel;
             m_uiOffset = uiOffset;
             Color rangeColor = m_rangeRenderer.color;
@@ -57,8 +55,7 @@ namespace FckAI.Towers
                 return;
 
             GameManager.AddTokens(-m_NextLevel.m_Cost);
-            
-            m_currentLevel++;
+
             m_currentDamage = m_NextLevel.m_NewDamage;
             m_currentCooldown = m_NextLevel.m_NewCooldown;
             m_currentRange = m_NextLevel.m_NewRange;
@@ -189,9 +186,7 @@ namespace FckAI.Towers
                 m_rangeTransform.gameObject.SetActive(false);
         }
 
-        protected abstract void Attack();
-
-        protected virtual IEnumerator StartCooldown()
+        protected IEnumerator StartCooldown()
         {
             m_hasCooldown = true;
 

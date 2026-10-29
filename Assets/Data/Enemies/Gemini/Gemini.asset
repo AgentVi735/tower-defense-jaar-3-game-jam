@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Enemies.EnemyData
   m_enemyName: Gemini
   m_enemyPrefab: {fileID: -6671905926379310430, guid: 6cd395e96df235148ba759e0e1f5c912, type: 3}
-  m_maxEnemyCount: 40
+  m_maxEnemyCount: 45
   m_damage: 2
   m_health: 5
   m_speed: 4

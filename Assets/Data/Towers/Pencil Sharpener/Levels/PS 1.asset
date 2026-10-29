@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PS 1
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Towers.TowerLevel
   m_nextLevel: {fileID: 11400000, guid: a5c0da9da465e5842b1fc61c11cf454f, type: 2}
-  m_description: Small Range increase
+  m_description: Range upgrade
   m_cost: 5
   m_newDamage: 5
   m_newCooldown: 1.1

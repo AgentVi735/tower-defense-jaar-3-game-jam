@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 550323261b7d43c395110d9e3971e133, type: 3}
+  m_Name: Grok Mod 1
+  m_EditorClassIdentifier: Assembly-CSharp::FckAI.Enemies.EnemyModifierData
+  m_targetEnemy: {fileID: 11400000, guid: 123fb84e248075e48b3d8cdf7085462a, type: 2}
+  m_newDamage: 15
+  m_newHealth: 20
+  m_newSpeed: 3.7
+  m_copyModifierStats: {fileID: 0}

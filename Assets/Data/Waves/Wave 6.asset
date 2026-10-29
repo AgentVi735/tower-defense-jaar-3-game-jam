@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec7578f6ad8413db8187772d6874658, type: 3}
   m_Name: Wave 6
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Core.Waves.WaveData
-  m_nextWave: {fileID: 0}
+  m_nextWave: {fileID: 11400000, guid: 31a9e6483036b8f49bcfcfe195eab57d, type: 2}
   m_extraStartTokens: 0
   m_enemyCount:
   - key: {fileID: 11400000, guid: bd15612871baeec46a257c74a32a445c, type: 2}

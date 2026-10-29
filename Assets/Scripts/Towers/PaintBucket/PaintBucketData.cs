@@ -15,7 +15,5 @@ namespace FckAI.Towers.PaintBucket
         public int m_MaxPaintAreas => m_maxPaintAreas;
         [SerializeField] private float m_paintAreaTime;
         public float m_PaintAreaTime => m_paintAreaTime;
-        [SerializeField] private float m_paintHitTick;
-        public float m_PaintHitTick => m_paintHitTick;
     }
 }

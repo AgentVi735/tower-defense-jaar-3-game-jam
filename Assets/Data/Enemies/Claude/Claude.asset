@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Enemies.EnemyData
   m_enemyName: Claude
   m_enemyPrefab: {fileID: 8099824919080051855, guid: 4b28566fb7d326544ad313fb44875b95, type: 3}
-  m_maxEnemyCount: 20
+  m_maxEnemyCount: 25
   m_damage: 25
   m_health: 25
   m_speed: 3
