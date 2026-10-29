@@ -142,7 +142,7 @@ namespace FckAI.Enemies
             controller.gameObject.SetActive(false);
             m_ActiveEnemies.Remove(controller);
             if (shouldDoDamage)
-                BaseManager.s_Instance.AddHealth(-controller.m_Data.m_Damage);
+                BaseManager.s_Instance.AddHealth(-controller.GetDamage());
             else
                 GameManager.AddTokens(controller.m_Data.m_Reward);
             

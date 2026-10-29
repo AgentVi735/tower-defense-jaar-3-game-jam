@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cfe3c18961848a4a2021c68fca0fac6, type: 3}
-  m_Name: PS L1
+  m_Name: PS 2
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Towers.TowerLevel
   m_nextLevel: {fileID: 0}
-  m_description: Small Range increase
-  m_cost: 7
+  m_description: Speed increase
+  m_cost: 15
   m_newDamage: 5
-  m_newCooldown: 1.1
-  m_newRange: 7.5
-  m_newProjectileSpeed: 0.45
+  m_newCooldown: 0.9
+  m_newRange: 7.75
+  m_newProjectileSpeed: 0.4
   m_copyLevelStats: {fileID: 0}
   m_copyDataStats: {fileID: 0}

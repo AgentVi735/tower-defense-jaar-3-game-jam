@@ -17,7 +17,7 @@ MonoBehaviour:
   m_baseCost: 25
   m_baseDamage: 5
   m_baseCooldown: 3
-  m_baseRange: 10
+  m_baseRange: 5
   m_baseProjectileSpeed: 0.4
   m_prefab: {fileID: 1399097364937370767, guid: 69999787b6f80b649a596cce8b2e1d29, type: 3}
   m_uiSprite: {fileID: 21300000, guid: 541148528221baf4cb59188301161c53, type: 3}

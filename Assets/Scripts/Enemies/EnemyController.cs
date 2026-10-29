@@ -16,9 +16,11 @@ namespace FckAI.Enemies
 
         private float m_speed;
         private float m_health;
+        private int m_damage;
 
         public float GetSpeed() => m_currentModifier != null ? m_currentModifier.m_NewSpeed : m_Data.m_Speed;
         public float GetHealth() => m_currentModifier != null ? m_currentModifier.m_NewHealth : m_Data.m_Health;
+        public int GetDamage() => m_currentModifier != null ? m_currentModifier.m_NewDamage : m_Data.m_Damage;
 
         [SerializeField] private MeshRenderer m_meshRenderer;
         
@@ -41,6 +43,7 @@ namespace FckAI.Enemies
             m_currentModifier = newModifier;
             m_speed = GetSpeed();
             m_health = GetHealth();
+            m_damage = GetDamage();
         }
         
         public void EnableEnemy()
@@ -49,6 +52,8 @@ namespace FckAI.Enemies
             transform.position = m_CurrentWaypoint.transform.position;
             m_speed = GetSpeed();
             m_health = GetHealth();
+            m_damage = GetDamage();
+            m_meshRenderer.material.color = m_defaultColor;
             gameObject.SetActive(true);
             CalculatePath();
         }

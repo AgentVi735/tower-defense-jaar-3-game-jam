@@ -56,13 +56,6 @@ namespace FckAI.UI.Towers
             
             gameObject.SetActive(true);
         }
-
-        public void TurnBackOn()
-        {
-            if (m_currentTower == null) return;
-            UpdateDisplay();
-            gameObject.SetActive(true);
-        }
         
         public void Hide()
         {
@@ -72,8 +65,17 @@ namespace FckAI.UI.Towers
             gameObject.SetActive(false);
         }
 
+        public void Dispose()
+        {
+            m_currentTower = null;
+            gameObject.SetActive(false);
+        }
+
         private void UpdateDisplay()
         {
+            if (m_currentTower == null)
+                return;
+            
             float fillAmount = m_currentTower.m_currentCooldownProgress / m_currentTower.m_currentCooldown;
             fillAmount = 1 - fillAmount;
             if (fillAmount <= 0)
