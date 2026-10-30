@@ -200,6 +200,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 355122326721232947}
   m_SourcePrefab: {fileID: 100100000, guid: 6f29ddfd45765bf4d830d47bad510d4f, type: 3}
+--- !u!4 &5086862224461523769 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -7370156802671013846, guid: 6f29ddfd45765bf4d830d47bad510d4f, type: 3}
+  m_PrefabInstance: {fileID: 6858941903476128531}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &5110489208266575870 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 1856540268053804269, guid: 6f29ddfd45765bf4d830d47bad510d4f, type: 3}
@@ -230,6 +235,7 @@ MonoBehaviour:
   m_hoverColor: {r: 0.6117647, g: 0.6117647, b: 0.6117647, a: 1}
   m_hoverLerpTime: 0.3
   m_shootTransform: {fileID: 5685404916697666047}
+  m_handleTransform: {fileID: 5086862224461523769}
 --- !u!65 &355122326721232947
 BoxCollider:
   m_ObjectHideFlags: 0

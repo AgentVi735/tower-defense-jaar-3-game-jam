@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cfe3c18961848a4a2021c68fca0fac6, type: 3}
   m_Name: PB 5
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Towers.TowerLevel
-  m_nextLevel: {fileID: 0}
+  m_nextLevel: {fileID: 11400000, guid: 417aab1bef154094daf4b4ec2b5d50db, type: 2}
   m_description: Speed upgrade
   m_cost: 25
   m_newDamage: 20

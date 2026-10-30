@@ -28,7 +28,7 @@ namespace FckAI.Towers
         private bool m_isHovering;
         protected bool m_isSelected;
         protected bool m_hasCooldown;
-        public float m_currentCooldownProgress { get; private set; }
+        public float m_currentCooldownProgress { get; protected set; }
 
         public float m_currentDamage { get; private set; }
         public float m_currentCooldown { get; private set; }
@@ -191,7 +191,7 @@ namespace FckAI.Towers
                 m_rangeTransform.gameObject.SetActive(false);
         }
 
-        protected IEnumerator StartCooldown()
+        protected virtual IEnumerator StartCooldown()
         {
             m_hasCooldown = true;
 

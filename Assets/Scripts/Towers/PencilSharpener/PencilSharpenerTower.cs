@@ -1,7 +1,9 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Linq;
 using FckAI.Audio;
 using FckAI.Core;
 using FckAI.Enemies;
+using FckAI.UI.Towers;
 using UnityEngine;
 
 namespace FckAI.Towers.PencilSharpener
@@ -11,6 +13,7 @@ namespace FckAI.Towers.PencilSharpener
         private new PencilSharpenerData m_Data { get; set; }
 
         [SerializeField] private Transform m_shootTransform;
+        [SerializeField] private Transform m_handleTransform;
 
         private PencilProjectile[] m_projectiles;
 
@@ -58,6 +61,28 @@ namespace FckAI.Towers.PencilSharpener
             lookPos.y = transform.position.y;
             m_TowerTransform.LookAt(lookPos);
             StartCoroutine(StartCooldown());
+        }
+        
+        protected override IEnumerator StartCooldown()
+        {
+            m_hasCooldown = true;
+
+            m_handleTransform.rotation = Quaternion.identity;
+            m_currentCooldownProgress = 0;
+            if (m_isSelected)
+                TowerCooldownUI.s_Instance.Show(this);
+            
+            for (; m_currentCooldownProgress < m_currentCooldown; m_currentCooldownProgress += Time.deltaTime)
+            {
+                float yRotation = Mathf.Lerp(0, 360, m_currentCooldownProgress / m_currentCooldown);
+                m_handleTransform.rotation = Quaternion.Euler(0, 0, yRotation);
+                yield return null;
+            }
+
+            m_currentCooldownProgress = m_currentCooldown;
+            m_handleTransform.rotation = Quaternion.identity;
+            
+            m_hasCooldown = false;
         }
 
         private PencilProjectile GetNewProjectile()
