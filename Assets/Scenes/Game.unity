@@ -427,6 +427,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf6e390df53f42a19fbb21a1b6cc7763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Enemies.EnemyWaypoint
+--- !u!224 &176747417 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4327075189249797397, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
+  m_PrefabInstance: {fileID: 2123504308}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &221353976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2888,21 +2893,6 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!224 &2123504311 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9035931398325081373, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
-  m_PrefabInstance: {fileID: 2123504308}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &2123504312 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5477963652028597601, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
-  m_PrefabInstance: {fileID: 2123504308}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &2123504313 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6456132709049495425, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
-  m_PrefabInstance: {fileID: 2123504308}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2123504314 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6301253032483894556, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
@@ -2945,9 +2935,7 @@ MonoBehaviour:
   - {fileID: 2123504316}
   - {fileID: 2123504315}
   - {fileID: 2123504314}
-  - {fileID: 2123504313}
-  - {fileID: 2123504312}
-  - {fileID: 2123504311}
+  - {fileID: 176747417}
   m_isActualMainMenu: 0
 --- !u!1001 &521142924567074061
 PrefabInstance:

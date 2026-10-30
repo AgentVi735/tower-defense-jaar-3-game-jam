@@ -41,6 +41,10 @@ namespace FckAI.Core
         {
             m_health += health;
             m_healthText.text = m_health.ToString();
+            if (m_health < 0)
+                m_health = 0;
+            if (m_health == 0)
+                GameManager.s_Instance.StopGame();
         }
     }
 }
