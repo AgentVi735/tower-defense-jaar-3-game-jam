@@ -15,5 +15,5 @@ MonoBehaviour:
   m_targetEnemy: {fileID: 11400000, guid: 4f67d278e2447c942b9d87ff46a44da5, type: 2}
   m_newDamage: 25
   m_newHealth: 60
-  m_newSpeed: 3.3
+  m_newSpeed: 5
   m_copyModifierStats: {fileID: 0}

@@ -16,6 +16,6 @@ MonoBehaviour:
   m_enemyPrefab: {fileID: 2984637536179955377, guid: d4661a43f218ccc4599facfa228a0d74, type: 3}
   m_maxEnemyCount: 30
   m_damage: 15
-  m_health: 18
-  m_speed: 3.5
+  m_health: 20
+  m_speed: 4.7
   m_reward: 7
