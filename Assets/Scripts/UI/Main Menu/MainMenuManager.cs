@@ -8,6 +8,8 @@ namespace FckAI.UI.MainMenu
 {
     public class MainMenuManager : MonoBehaviour
     {
+        [SerializeField] private MainMenuLogo m_mainMenuLogo;
+        
 #if UNITY_EDITOR
         [SerializeField] private SceneAsset m_gameScene;
         private void OnValidate()
@@ -20,6 +22,7 @@ namespace FckAI.UI.MainMenu
 
         public void StartGame()
         {
+            m_mainMenuLogo.SavePositions();
             SceneManager.LoadScene(m_gameSceneName);
         }
 

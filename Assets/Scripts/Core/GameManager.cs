@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using FckAI.Core.Waves;
 using FckAI.Enemies;
+using FckAI.UI.MainMenu;
 using FckAI.UI.Towers;
 using TMPro;
 using Unity.Scripting.LifecycleManagement;
@@ -29,6 +30,7 @@ namespace FckAI.Core
         
         [SerializeField] private CanvasGroup m_mainMenuCanvasGroup;
         [SerializeField] private float m_canvasGroupFadeTime;
+        [SerializeField] private MainMenuLogo m_mainMenuLogo;
 
         [SerializeField] private float m_timeBeforeStart;
         private WaitForSeconds m_waitTimeBeforeStart;
@@ -103,6 +105,7 @@ namespace FckAI.Core
 
         public void StopGame()
         {
+            m_mainMenuLogo.ResetPositions();
             StartCoroutine(FadeMainMenu(true));
         }
 

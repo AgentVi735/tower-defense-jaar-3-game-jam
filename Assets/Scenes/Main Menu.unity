@@ -427,6 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db63a3e2345d448987397618c55ce76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.UI.MainMenu.MainMenuManager
+  m_mainMenuLogo: {fileID: 3029880114385297743}
   m_gameScene: {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
   m_gameSceneName: Game
 --- !u!1 &2005692236
@@ -667,8 +668,97 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 57433322456170954, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3029880114385297743}
+    - targetCorrespondingSourceObject: {fileID: 57433322456170954, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3029880114385297744}
   m_SourcePrefab: {fileID: 100100000, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
+--- !u!224 &3029880114385297735 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9035931398325081373, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
+  m_PrefabInstance: {fileID: 3029880114385297734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &3029880114385297736 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5477963652028597601, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
+  m_PrefabInstance: {fileID: 3029880114385297734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &3029880114385297737 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6456132709049495425, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
+  m_PrefabInstance: {fileID: 3029880114385297734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &3029880114385297738 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6301253032483894556, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
+  m_PrefabInstance: {fileID: 3029880114385297734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &3029880114385297739 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2508538145612395249, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
+  m_PrefabInstance: {fileID: 3029880114385297734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &3029880114385297740 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 658887184033361249, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
+  m_PrefabInstance: {fileID: 3029880114385297734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &3029880114385297741 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 178292479055974244, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
+  m_PrefabInstance: {fileID: 3029880114385297734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3029880114385297742 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 57433322456170954, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
+  m_PrefabInstance: {fileID: 3029880114385297734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3029880114385297743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3029880114385297742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d03245e3360f4504b0ce8942cab85edf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FckAI.UI.MainMenu.MainMenuLogo
+  m_logosRectTransforms:
+  - {fileID: 3029880114385297741}
+  - {fileID: 3029880114385297740}
+  - {fileID: 3029880114385297739}
+  - {fileID: 3029880114385297738}
+  - {fileID: 3029880114385297737}
+  - {fileID: 3029880114385297736}
+  - {fileID: 3029880114385297735}
+  m_isActualMainMenu: 1
+--- !u!95 &3029880114385297744
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3029880114385297742}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2a5e0b45b98b3ac4e983193bb3060cac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &6379256170355079912
 PrefabInstance:
   m_ObjectHideFlags: 0

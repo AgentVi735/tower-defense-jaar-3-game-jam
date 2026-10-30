@@ -2867,6 +2867,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6817604371323098624, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2123504310}
+    - targetCorrespondingSourceObject: {fileID: 57433322456170954, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2123504319}
   m_SourcePrefab: {fileID: 100100000, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
 --- !u!1 &2123504309 stripped
 GameObject:
@@ -2885,6 +2888,67 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!224 &2123504311 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9035931398325081373, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
+  m_PrefabInstance: {fileID: 2123504308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2123504312 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5477963652028597601, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
+  m_PrefabInstance: {fileID: 2123504308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2123504313 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6456132709049495425, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
+  m_PrefabInstance: {fileID: 2123504308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2123504314 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6301253032483894556, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
+  m_PrefabInstance: {fileID: 2123504308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2123504315 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2508538145612395249, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
+  m_PrefabInstance: {fileID: 2123504308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2123504316 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 658887184033361249, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
+  m_PrefabInstance: {fileID: 2123504308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2123504317 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 178292479055974244, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
+  m_PrefabInstance: {fileID: 2123504308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2123504318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 57433322456170954, guid: 0e3c22bde1127c5418fa74be661e7383, type: 3}
+  m_PrefabInstance: {fileID: 2123504308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2123504319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123504318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d03245e3360f4504b0ce8942cab85edf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FckAI.UI.MainMenu.MainMenuLogo
+  m_logosRectTransforms:
+  - {fileID: 2123504317}
+  - {fileID: 2123504316}
+  - {fileID: 2123504315}
+  - {fileID: 2123504314}
+  - {fileID: 2123504313}
+  - {fileID: 2123504312}
+  - {fileID: 2123504311}
+  m_isActualMainMenu: 0
 --- !u!1001 &521142924567074061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3240,6 +3304,10 @@ PrefabInstance:
       propertyPath: m_tokensText
       value: 
       objectReference: {fileID: 593631763}
+    - target: {fileID: 363730435476069664, guid: 36caf0cf78d128a4fb4a5baa2ed223c9, type: 3}
+      propertyPath: m_mainMenuLogo
+      value: 
+      objectReference: {fileID: 2123504319}
     - target: {fileID: 363730435476069664, guid: 36caf0cf78d128a4fb4a5baa2ed223c9, type: 3}
       propertyPath: m_mainMenuScene
       value: 
