@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cfe3c18961848a4a2021c68fca0fac6, type: 3}
   m_Name: PS 6
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Towers.TowerLevel
-  m_nextLevel: {fileID: 0}
+  m_nextLevel: {fileID: 11400000, guid: ec4295c6803670b44bae5fbeb32a6357, type: 2}
   m_description: Speed upgrade
   m_cost: 50
   m_newDamage: 14
