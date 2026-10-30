@@ -23,6 +23,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b8a858a7f016d314a823d6f25ed41e99, type: 2}
   - {fileID: 11400000, guid: 123fb84e248075e48b3d8cdf7085462a, type: 2}
   - {fileID: 11400000, guid: 4f67d278e2447c942b9d87ff46a44da5, type: 2}
+  - {fileID: 11400000, guid: 674dd694982a25e4394e22209e69a07b, type: 2}
   m_enemyLayer:
     serializedVersion: 2
     m_Bits: 128
