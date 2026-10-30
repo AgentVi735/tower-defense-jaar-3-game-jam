@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Towers.TowerLevel
   m_nextLevel: {fileID: 11400000, guid: f11fb16894dc2ce499ece495c8b8cfc2, type: 2}
   m_description: Cooldown upgrade
-  m_cost: 30
+  m_cost: 45
   m_newDamage: 20
   m_newCooldown: 1.5
   m_newRange: 6.8

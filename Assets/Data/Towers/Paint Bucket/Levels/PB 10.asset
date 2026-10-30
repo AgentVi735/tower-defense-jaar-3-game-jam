@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PB 10
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Towers.TowerLevel
   m_nextLevel: {fileID: 0}
-  m_description: Speed upgrade
-  m_cost: 45
+  m_description: Damage upgrade
+  m_cost: 100
   m_newDamage: 25
   m_newCooldown: 1.14
   m_newRange: 7

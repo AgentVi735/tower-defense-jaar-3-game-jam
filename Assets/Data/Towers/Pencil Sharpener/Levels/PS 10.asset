@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: PS 10
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Towers.TowerLevel
   m_nextLevel: {fileID: 0}
-  m_description: Speed upgrade
-  m_cost: 60
+  m_description: Damage upgrade
+  m_cost: 200
   m_newDamage: 20
   m_newCooldown: 0.3
   m_newRange: 8.5
-  m_newProjectileSpeed: 0.15
+  m_newProjectileSpeed: 0.18
   m_copyLevelStats: {fileID: 0}
   m_copyDataStats: {fileID: 0}

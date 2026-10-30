@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Towers.TowerLevel
   m_nextLevel: {fileID: 11400000, guid: a34e0e50194961041a6bc1a7cfec958e, type: 2}
   m_description: Speed upgrade
-  m_cost: 35
+  m_cost: 115
   m_newDamage: 16
   m_newCooldown: 0.4
   m_newRange: 8.5

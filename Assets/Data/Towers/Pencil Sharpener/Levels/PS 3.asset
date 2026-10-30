@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Towers.TowerLevel
   m_nextLevel: {fileID: 11400000, guid: 5f55e216409adde469328e13b4f04630, type: 2}
   m_description: Damage upgrade
-  m_cost: 15
+  m_cost: 35
   m_newDamage: 7
   m_newCooldown: 0.85
   m_newRange: 7.8

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FckAI.Towers.TowerLevel
   m_nextLevel: {fileID: 11400000, guid: 212c1e66955fb6346a9a24caaa1605bd, type: 2}
   m_description: Range upgrade
-  m_cost: 12
+  m_cost: 15
   m_newDamage: 8
   m_newCooldown: 3
   m_newRange: 5.7
