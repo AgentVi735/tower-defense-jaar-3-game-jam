@@ -44,7 +44,7 @@ namespace FckAI.Core
             if (m_health < 0)
                 m_health = 0;
             if (m_health == 0)
-                GameManager.s_Instance.StopGame();
+                GameManager.s_Instance.FinishGame();
         }
     }
 }

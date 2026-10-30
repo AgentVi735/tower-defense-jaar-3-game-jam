@@ -28,9 +28,13 @@ namespace FckAI.Core
 
         [SerializeField] private TMP_Text m_tokensText;
         
-        [SerializeField] private CanvasGroup m_mainMenuCanvasGroup;
         [SerializeField] private float m_canvasGroupFadeTime;
+        [SerializeField] private CanvasGroup m_mainMenuCanvasGroup;
         [SerializeField] private MainMenuLogo m_mainMenuLogo;
+        [SerializeField] private CanvasGroup m_winCanvasGroup;
+        [SerializeField] private CanvasGroup m_loseCanvasGroup;
+
+        private bool hasFinished;
 
         [SerializeField] private float m_timeBeforeStart;
         private WaitForSeconds m_waitTimeBeforeStart;
@@ -72,12 +76,13 @@ namespace FckAI.Core
             s_Instance = null;
             s_Tokens = 0;
         }
-
+        
         private IEnumerator FadeMainMenu(bool toggle)
         {
             float startAlpha = toggle ? 0 : 1;
             float endAlpha = toggle ? 1 : 0;
             m_mainMenuCanvasGroup.alpha = startAlpha;
+            m_mainMenuLogo.gameObject.SetActive(!toggle);
             m_mainMenuCanvasGroup.gameObject.SetActive(true);
             
             for (float i = 0; i < m_canvasGroupFadeTime; i += Time.deltaTime)
@@ -98,11 +103,45 @@ namespace FckAI.Core
             }
         }
 
+        private IEnumerator FadeMenu()
+        {
+            float startAlpha = 0;
+            float endAlpha = 1;
+            bool hasWon = BaseManager.s_Instance.m_health > 0;
+            CanvasGroup group;
+            if (hasWon)
+                group = m_winCanvasGroup;
+            else
+                group = m_loseCanvasGroup;
+            group.alpha = startAlpha;
+            group.gameObject.SetActive(true);
+            
+            for (float i = 0; i < m_canvasGroupFadeTime; i += Time.deltaTime)
+            {
+                group.alpha = Mathf.Lerp(startAlpha, endAlpha, i / m_canvasGroupFadeTime);
+                yield return null;
+            }
+            
+            group.alpha = 1;
+
+            yield return new WaitForSeconds(5);
+            
+            StopGame();
+        }
+
         private static void StartGame()
         {
             WaveManager.s_Instance.StartWave();
         }
 
+        public void FinishGame()
+        {
+            if (hasFinished)
+                return;
+            hasFinished = true;
+            StartCoroutine(FadeMenu());
+        }
+        
         public void StopGame()
         {
             m_mainMenuLogo.ResetPositions();

@@ -69,7 +69,7 @@ namespace FckAI.Core.Waves
             if (m_currentWave.m_NextWave == null)
             {
                 Debug.Log("All waves cleared");
-                GameManager.s_Instance.StopGame();
+                GameManager.s_Instance.FinishGame();
                 yield break;
             }
             m_currentWave = m_currentWave.m_NextWave;
