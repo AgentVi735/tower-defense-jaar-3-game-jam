@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using FckAI.Audio;
 using FckAI.Core;
 using FckAI.Enemies;
 using UnityEngine;
@@ -53,6 +54,8 @@ namespace FckAI.Towers.PaintBucket
         private void Attack()
         {
             m_projectile.Shoot(m_target);
+            if (m_isSelected)
+                AudioManager.PlaySFX(AudioType.PaintShoot);
             StartCoroutine(StartCooldown());
         }
 

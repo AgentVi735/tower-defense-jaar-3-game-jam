@@ -1,4 +1,5 @@
-﻿using FckAI.Core;
+﻿using FckAI.Audio;
+using FckAI.Core;
 using FckAI.UI.Towers;
 using UnityEngine;
 
@@ -32,6 +33,7 @@ namespace FckAI.Towers
         public void OnCancelPlacement()
         {
             m_isSelected = false;
+            AudioManager.PlaySFX(AudioType.TowerDeselect);
             if (!m_isHovering)
                 OnHover(false);
         }
@@ -45,6 +47,7 @@ namespace FckAI.Towers
                 return;
 
             m_isSelected = true;
+            AudioManager.PlaySFX(AudioType.TowerSelect);
             Vector3 slotPos = m_uiOffset + transform.position;
             Vector2 uiPos = GameManager.s_Instance.m_Camera.WorldToScreenPoint(slotPos);
             TowerSelectUI.s_Instance.Show(uiPos, this);

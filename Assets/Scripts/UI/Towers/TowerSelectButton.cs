@@ -1,4 +1,5 @@
-﻿using FckAI.Core;
+﻿using FckAI.Audio;
+using FckAI.Core;
 using FckAI.Towers;
 using TMPro;
 using UnityEngine;
@@ -45,6 +46,7 @@ namespace FckAI.UI.Towers
                 return;
             
             TowerSelectUI.s_Instance.OnSelectButton(m_TowerData);
+            AudioManager.PlaySFX(AudioType.UIClick);
         }
 
         public void RefreshAvailability()

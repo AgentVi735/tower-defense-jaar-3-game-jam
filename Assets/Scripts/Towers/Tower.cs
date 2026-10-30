@@ -1,4 +1,5 @@
 using System.Collections;
+using FckAI.Audio;
 using FckAI.Core;
 using FckAI.UI.Towers;
 using UnityEngine;
@@ -25,7 +26,7 @@ namespace FckAI.Towers
         private float m_hoverIndex;
 
         private bool m_isHovering;
-        private bool m_isSelected;
+        protected bool m_isSelected;
         protected bool m_hasCooldown;
         public float m_currentCooldownProgress { get; private set; }
 
@@ -47,6 +48,7 @@ namespace FckAI.Towers
             m_rangeAlpha = rangeColor.a;
             rangeColor.a = 0;
             m_rangeRenderer.color = rangeColor;
+            AudioManager.PlaySFX(AudioType.TowerPlace);
         }
         
         public virtual void Upgrade()
@@ -62,6 +64,7 @@ namespace FckAI.Towers
             m_rangeTransform.localScale = Vector3.one * (m_currentRange * 2);
             m_currentProjectileSpeed = m_NextLevel.m_NewProjectileSpeed;
             m_NextLevel = m_NextLevel.m_NextLevel;
+            AudioManager.PlaySFX(AudioType.TowerUpgrade);
         }
 
         private void OnMouseEnter() => ToggleHover(true);
@@ -79,6 +82,7 @@ namespace FckAI.Towers
         public void OnDeselect()
         {
             m_isSelected = false;
+            AudioManager.PlaySFX(AudioType.TowerDeselect);
             if (!m_isHovering)
                 ToggleHover(false);
         }
@@ -91,6 +95,7 @@ namespace FckAI.Towers
                 return;
 
             m_isSelected = true;
+            AudioManager.PlaySFX(AudioType.TowerSelect);
             Vector3 slotPos = m_uiOffset + transform.position;
             Vector2 uiPos = GameManager.s_Instance.m_Camera.WorldToScreenPoint(slotPos);
             TowerUpgradeUI.s_Instance.Show(uiPos, this);

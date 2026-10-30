@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using FckAI.Audio;
 using FckAI.Core;
 using FckAI.Enemies;
 using UnityEngine;
@@ -51,6 +52,8 @@ namespace FckAI.Towers.PencilSharpener
                 return;
             
             projectile.Shoot(m_target);
+            if (m_isSelected)
+                AudioManager.PlaySFX(AudioType.PencilShoot);
             Vector3 lookPos = m_target.transform.position;
             lookPos.y = transform.position.y;
             m_TowerTransform.LookAt(lookPos);

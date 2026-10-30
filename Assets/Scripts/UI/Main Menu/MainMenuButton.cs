@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using FckAI.Audio;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -60,6 +61,7 @@ namespace FckAI.UI.MainMenu
 
         private void Press()
         {
+            AudioManager.PlaySFX(AudioType.UIClick);
             if (m_lerpCoroutine != null)
                 StopCoroutine(m_lerpCoroutine);
             m_rectTransform.localScale = m_defaultScale;

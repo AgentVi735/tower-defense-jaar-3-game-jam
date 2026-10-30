@@ -1,4 +1,5 @@
-﻿using FckAI.Core;
+﻿using FckAI.Audio;
+using FckAI.Core;
 using FckAI.Enemies;
 using UnityEngine;
 
@@ -40,6 +41,7 @@ namespace FckAI.Towers.PaintBucket
             m_currentTime = m_maxTime;
             m_meshRenderer.material.color = splashColor;
             gameObject.SetActive(true);
+            AudioManager.PlaySFX(AudioType.PaintLand);
             m_isActive = true;
             CheckForHit();
         }

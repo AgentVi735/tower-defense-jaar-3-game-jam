@@ -1,4 +1,5 @@
-﻿using FckAI.Core;
+﻿using FckAI.Audio;
+using FckAI.Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -46,6 +47,7 @@ namespace FckAI.UI.Towers
             if (!IsActive() || !IsInteractable())
                 return;
             
+            AudioManager.PlaySFX(AudioType.UIClick);
             TowerUpgradeUI.s_Instance.OnSelectButton();
         }
 
